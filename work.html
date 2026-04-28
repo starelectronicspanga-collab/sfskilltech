@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work | SKILLTECH</title>
+    <style>
+        /* General Settings */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f0f7ff; color: #333; direction: ltr; text-align: left; }
+
+        /* Updated Navigation with Pop-up Buttons (Same as Home) */
+        nav {
+            background: #fff; padding: 15px 10%; display: flex;
+            justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .brand-circle {
+            width: 40px; height: 40px; background-color: #0d47a1;
+            border-radius: 50%; display: flex; justify-content: center;
+            align-items: center; color: white; font-weight: bold; font-size: 18px;
+            border: 2px solid #bbdefb;
+        }
+        .logo-text { font-size: 24px; font-weight: bold; color: #0d47a1; letter-spacing: 2px; }
+        
+        nav ul { display: flex; list-style: none; gap: 15px; }
+        nav ul li a { 
+            text-decoration: none; 
+            color: #1565c0; 
+            font-weight: 600; 
+            padding: 10px 22px;
+            border-radius: 12px;
+            background: #ffffff;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid #e3f2fd;
+            font-size: 14px;
+            display: inline-block;
+        }
+        nav ul li a:hover { 
+            background: #2196f3; 
+            color: white; 
+            transform: translateY(-6px); 
+            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.3);
+            border-color: #2196f3;
+        }
+
+        /* Work Section */
+        .work-container { padding: 60px 10%; text-align: center; }
+        .work-container h1 { color: #0d47a1; margin-bottom: 10px; font-size: 36px; }
+        .work-container p { color: #666; margin-bottom: 40px; }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .work-box {
+            background: #fff; border-radius: 15px; padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 4px solid #2196f3;
+            transition: 0.3s; text-align: left;
+        }
+        .work-box:hover { transform: translateY(-10px); }
+        .work-box h3 { color: #1565c0; margin: 15px 0 10px; font-size: 20px; }
+        .work-box p { font-size: 14px; line-height: 1.6; color: #555; }
+        .work-box ul { margin-top: 10px; list-style: none; }
+        .work-box li { font-size: 13px; color: #444; margin-bottom: 5px; position: relative; padding-left: 15px; }
+        .work-box li::before { content: '✔'; position: absolute; left: 0; color: #2196f3; }
+
+        /* Visual Boxes */
+        .color-box {
+            width: 100%; height: 160px; border-radius: 10px; 
+            display: flex; justify-content: center; align-items: center;
+            color: white; font-size: 45px;
+        }
+        .blue-1 { background: linear-gradient(45deg, #2196f3, #64b5f6); }
+        .blue-2 { background: linear-gradient(45deg, #1976d2, #42a5f5); }
+        .blue-3 { background: linear-gradient(45deg, #0d47a1, #1e88e5); }
+
+        /* Home Button Style */
+        .btn-home {
+            margin-top: 50px; background: #2196f3; color: white;
+            padding: 14px 35px; text-decoration: none; border-radius: 8px;
+            font-weight: bold; display: inline-block; transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+        .btn-home:hover { background: #0d47a1; transform: translateY(-3px); }
+
+        footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <div class="brand-circle">SF</div>
+            <span class="logo-text">SKILLTECH</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="work-container">
+        <h1>Our Portfolio</h1>
+        <p>Expert Digital Solutions and Professional Projects</p>
+
+        <div class="work-grid">
+            <div class="work-box">
+                <div class="color-box blue-1">🎨</div>
+                <h3>Creative Design & AI</h3>
+                <p>Advanced product photography and creative editing using Adobe & AI.</p>
+                <ul>
+                    <li>Professional Product Image Preparation</li>
+                    <li>High-Quality Ad Banner Design</li>
+                    <li>AI-Powered Visual Enhancement</li>
+                </ul>
+            </div>
+
+            <div class="work-box">
+                <div class="color-box blue-2">📈</div>
+                <h3>Advanced SEO</h3>
+                <p>Full optimization for better search engine rankings and speed.</p>
+                <ul>
+                    <li>Expert Meta Data & Tag Management (H1, H2)</li>
+                    <li>Website Speed & Performance Optimization</li>
+                    <li>Image Alt-Text & Quality Management</li>
+                </ul>
+            </div>
+
+            <div class="work-box">
+                <div class="color-box blue-3">💻</div>
+                <h3>System Operations</h3>
+                <p>Efficient management of business workflows and inventory.</p>
+                <ul>
+                    <li>Professional Stock-In & Stock-Out Tracking</li>
+                    <li>Accurate Inventory Data Entry</li>
+                    <li>AI-Directed Web Project Management</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="index.html" class="btn-home">← Back to Home Page</a>
+    </div>
+
+    <footer>
+        © 2026 SKILLTECH - All Rights Reserved
+    </footer>
+
+</body>
+</html>

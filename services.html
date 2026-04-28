@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | SKILLTECH</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f0f7ff; color: #333; }
+
+        /* Updated Navigation with Pop-up Buttons */
+        nav {
+            background: #fff; padding: 15px 10%; display: flex;
+            justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .brand-circle {
+            width: 40px; height: 40px; background-color: #0d47a1;
+            border-radius: 50%; display: flex; justify-content: center;
+            align-items: center; color: white; font-weight: bold; font-size: 18px;
+            border: 2px solid #bbdefb;
+        }
+        .logo-text { font-size: 24px; font-weight: bold; color: #0d47a1; letter-spacing: 2px; }
+        
+        nav ul { display: flex; list-style: none; gap: 15px; }
+        nav ul li a { 
+            text-decoration: none; 
+            color: #1565c0; 
+            font-weight: 600; 
+            padding: 10px 22px;
+            border-radius: 12px;
+            background: #ffffff;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid #e3f2fd;
+            font-size: 14px;
+            display: inline-block;
+        }
+        nav ul li a:hover { 
+            background: #2196f3; 
+            color: white; 
+            transform: translateY(-6px); 
+            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.3);
+            border-color: #2196f3;
+        }
+
+        /* Services Content */
+        .services-header { padding: 60px 10% 20px; text-align: center; }
+        .services-header h1 { color: #0d47a1; font-size: 36px; margin-bottom: 10px; }
+        .services-header p { color: #666; font-size: 18px; }
+
+        .services-list { padding: 40px 10%; display: flex; flex-direction: column; gap: 20px; }
+        
+        .service-item {
+            background: #fff; padding: 30px; border-radius: 15px;
+            border-left: 6px solid #2196f3; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .service-item:hover { transform: scale(1.02); box-shadow: 0 6px 20px rgba(33, 150, 243, 0.1); }
+        
+        .service-item h3 { color: #1565c0; margin-bottom: 10px; font-size: 22px; }
+        .service-item p { color: #555; font-size: 15px; line-height: 1.7; }
+
+        .btn-home {
+            margin: 40px auto;
+            background: #2196f3;
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: table;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+        .btn-home:hover { background: #0d47a1; transform: translateY(-3px); }
+
+        footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <div class="brand-circle">SF</div>
+            <span class="logo-text">SKILLTECH</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="services-header">
+        <h1>Professional Services</h1>
+        <p>Providing high-quality digital solutions to grow your business.</p>
+    </div>
+
+    <div class="services-list">
+        <div class="service-item">
+            <h3>SEO & Digital Marketing</h3>
+            <p>We help your website rank on the first page of Google. Our strategies include advanced keyword research, on-page optimization, and organic traffic growth to increase your online visibility.</p>
+        </div>
+
+        <div class="service-item">
+            <h3>Adobe Creative Design</h3>
+            <p>Professional graphic design services using Adobe Photoshop. We create catchy social media banners, advertisements, and brand identity materials that grab attention instantly.</p>
+        </div>
+
+        <div class="service-item">
+            <h3>AI Tools & Automation</h3>
+            <p>Harness the power of Artificial Intelligence. We integrate smart AI tools into your workflow to speed up content creation, image editing, and business data analysis.</p>
+        </div>
+
+        <div class="service-item">
+            <h3>Web & Stock Management</h3>
+            <p>Complete management of inventory and stocks for businesses, combined with building responsive web layouts for efficient ad posting and data tracking.</p>
+        </div>
+    </div>
+
+    <a href="index.html" class="btn-home">← Back to Home Page</a>
+
+    <footer>
+        © 2026 SKILLTECH - All Rights Reserved
+    </footer>
+
+</body>
+</html>

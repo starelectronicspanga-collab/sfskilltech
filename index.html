@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKILLTECH | Shakeel Ahmed Khan</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f0f7ff; color: #333; line-height: 1.6; }
+
+        /* Navigation */
+        nav {
+            background: #fff; padding: 15px 10%; display: flex;
+            justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .brand-circle {
+            width: 40px; height: 40px; background-color: #0d47a1;
+            border-radius: 50%; display: flex; justify-content: center;
+            align-items: center; color: white; font-weight: bold; font-size: 18px;
+            border: 2px solid #bbdefb;
+        }
+        .logo-text { font-size: 24px; font-weight: bold; color: #0d47a1; letter-spacing: 2px; }
+        
+        nav ul { display: flex; list-style: none; gap: 15px; }
+        nav ul li a { 
+            text-decoration: none; color: #1565c0; font-weight: 600; 
+            padding: 10px 22px; border-radius: 12px; background: #ffffff;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid #e3f2fd; font-size: 14px; display: inline-block;
+        }
+        nav ul li a:hover { 
+            background: #2196f3; color: white; transform: translateY(-6px); 
+            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh; display: flex; align-items: center;
+            justify-content: center; text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            padding: 0 10%;
+        }
+        
+        /* Aapka naam ab sab se Bara aur Bold hai */
+        .big-name {
+            font-size: 52px; /* Pehle se bara */
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #0d47a1, #2196f3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Digital Expert wala text chota aur light kar diya */
+        .hero h1 { font-size: 32px; color: #1565c0; margin-bottom: 10px; font-weight: 600; letter-spacing: 1px; }
+        .hero h3 { font-size: 16px; color: #777; margin-bottom: 25px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+        .hero p { font-size: 16px; color: #666; max-width: 650px; margin: 0 auto 35px; line-height: 1.5; }
+
+        .btn { background: #2196f3; color: white; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .btn:hover { background: #0d47a1; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); }
+
+        .whatsapp-float {
+            position: fixed; bottom: 25px; right: 25px; background-color: #0d47a1;
+            width: 65px; height: 65px; border-radius: 50%; display: flex;
+            justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(13, 71, 161, 0.4);
+            color: white; font-weight: bold; text-decoration: none; transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 24px; }
+            .big-name { font-size: 32px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <div class="brand-circle">SF</div>
+            <span class="logo-text">SKILLTECH</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <!-- GRADIENT BOLD BIG NAME -->
+            <span class="big-name">Shakeel Ahmed Khan</span>
+            
+            <h1>Digital Expert & AI Specialist</h1>
+            <h3>Founder of SKILLTECH</h3>
+            
+            <p>Specializing in <b>SEO</b>, <b>Creative Adobe Design</b>, and <b>Smart Web Solutions</b> powered by AI.</p>
+            
+            <div class="btn-group">
+                <a href="work.html" class="btn">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me" class="whatsapp-float" title="Contact Us">SF</a>
+
+    <footer>
+        © 2026 SKILLTECH - All Rights Reserved
+    </footer>
+
+</body>
+</html>
