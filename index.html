@@ -83,54 +83,41 @@
 
     <footer> © 2026 SKILLTECH - All Rights Reserved </footer>
 
-   <script>
-    // Key ko mazeed chhupa kar likha hai taake GitHub block na kare
-    const kA = "AIzaSyD";
-    const kB = "QIU4mSUYyga";
-    const kC = "Efo0HwDJeQJ2gkwlMBo1Q";
-    const API_KEY = kA + kB + kC;
-
-    function toggleSearchBox() {
-        var box = document.getElementById("search-box");
-        box.style.display = (box.style.display === "flex") ? "none" : "flex";
-    }
-
-    async function askGeminiAI() {
-        const input = document.getElementById("userInput").value;
-        const responseDiv = document.getElementById("responseText");
-        const popup = document.getElementById("popupWindow");
-        
-        if (!input.trim()) return;
-
-        popup.style.display = "block";
-        document.getElementById("search-box").style.display = "none";
-        responseDiv.innerHTML = "<i>AI Soch raha hai... 💡</i>";
-
-        try {
-            // Sahi URL format
-            const url = "https://googleapis.com" + API_KEY;
-
-            const response = await fetch(url, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ contents: [{ parts: [{ text: input }] }] })
-            });
-
-            const data = await response.json();
-            
-            if (data.candidates && data.candidates[0].content) {
-                let aiText = data.candidates[0].content.parts[0].text;
-                responseDiv.innerHTML = aiText.replace(/\n/g, "<br>");
-            } else {
-                responseDiv.innerHTML = "Maazrat! API Key shayad block ho gayi hai. Nayi key lagani hogi.";
-            }
-        } catch (error) {
-            responseDiv.innerHTML = "Connection Error! Website ko refresh (Ctrl+F5) kar ke dobara try karein.";
+  <script>
+        // Search box ko kholne aur band karne ke liye
+        function toggleSearchBox() {
+            var box = document.getElementById("search-box");
+            box.style.display = (box.style.display === "flex") ? "none" : "flex";
         }
-        document.getElementById("userInput").value = "";
-    }
 
-    function closePopup() { document.getElementById("popupWindow").style.display = "none"; }
-</script>
+        // Jab user Ask button dabaye to ye chale
+        function askGeminiAI() {
+            const input = document.getElementById("userInput").value;
+            const responseDiv = document.getElementById("responseText");
+            const popup = document.getElementById("popupWindow");
+            
+            if (!input.trim()) return;
+
+            // Popup show karna aur search box band karna
+            popup.style.display = "block";
+            document.getElementById("search-box").style.display = "none";
+            
+            // AI Soch raha hai wala asar
+            responseDiv.innerHTML = "<i>AI is thinking... 💡</i>";
+
+            // 1 second ke baad aapka bataya hua custom message
+            setTimeout(() => {
+                responseDiv.innerHTML = "Hi! Main Shakeel Ahmed Khan ka AI Assistant hoon. Aapka sawal mujhe mil gaya hai, main jald hi aapko is par response karunga! Shukriya.";
+            }, 1000);
+
+            // Input khali karna
+            document.getElementById("userInput").value = "";
+        }
+
+        // Popup band karne ke liye
+        function closePopup() { 
+            document.getElementById("popupWindow").style.display = "none"; 
+        }
+    </script>
 </body>
 </html>
