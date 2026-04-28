@@ -42,14 +42,13 @@
     nav ul li a { text-decoration: none; color: #1565c0; font-weight: 600; padding: 10px 22px; border-radius: 12px; background: #ffffff; transition: 0.3s; border: 2px solid #e3f2fd; font-size: 14px; cursor: pointer; display: inline-block; }
     nav ul li a:hover { background: #2196f3; color: white; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); }
 
-    /* HERO SECTION - Aapki Image ke mutabiq */
+    /* HERO SECTION */
     .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 10%; }
     .hero-content h1 { font-size: 52px; font-weight: 900; color: #1565c0; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
     .hero-content h2 { font-size: 32px; color: #1565c0; font-weight: 600; margin-bottom: 10px; }
     .hero-content h3 { font-size: 16px; color: #666; font-weight: bold; text-transform: uppercase; margin-bottom: 25px; }
     .hero-content p { font-size: 16px; color: #777; max-width: 700px; margin: 0 auto 35px; line-height: 1.6; }
     
-    /* View My Work Button */
     .btn { background: #2196f3; color: white; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
     .btn:hover { background: #0d47a1; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); }
 
@@ -76,27 +75,19 @@
     .footer-logo { position: fixed; bottom: 25px; right: 25px; background-color: #0d47a1; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; animation: heartbeat 2s infinite; z-index: 999; }
     footer { text-align: center; padding: 25px; color: #999; }
 
-  @media (max-width: 768px) {
+    /* MOBILE DESIGN FIXED */
+    @media (max-width: 768px) {
         nav { padding: 10px 5%; flex-direction: column; gap: 10px; }
         nav ul { display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; width: 100%; padding: 0; }
         nav ul li a { 
-            padding: 6px 8px; 
+            padding: 6px 10px; 
             font-size: 10px; 
-            white-space: nowrap; /* Is se 'About Me' ek hi line mein rahega */
+            white-space: nowrap; 
             display: inline-block;
         }
-        .hero-content h1 { font-size: 28px !important; }
-        .hero-content h2 { font-size: 18px !important; }
-    }
-        .hero-content h1 { font-size: 28px !important; }
-        .hero-content h2 { font-size: 18px !important; }
-    }
-            padding: 8px 10px; 
-            font-size: 10px; 
-            white-space: nowrap; /* Is se 'About Me' ek line mein ayega */
-        }
-        .hero-content h1 { font-size: 32px; }
-        .hero-content h2 { font-size: 22px; }
+        .hero-content h1 { font-size: 30px !important; }
+        .hero-content h2 { font-size: 20px !important; }
+        .hero { height: auto; padding: 40px 5%; }
     }
 </style>
 </head>
@@ -141,7 +132,7 @@
             <div style="font-size: 15px; color: #444; line-height: 1.7;">
                 <p>I am the founder of <b>SF SKILLTECH</b>, a professional <b>Web Developer</b>, and <b>Social Media Expert</b>.</p>
                 <br>
-                <p><b>This entire website is a showcase of my own development skills.</b> For the past <b>2 years</b>, I have been working with <b>Star International Company</b>, providing expert solutions in <b>Web Development</b>, <b>SEO</b>, <b>Graphic Design</b>, and <b>Social Media Management</b>.</p>
+                <p><b>This entire website is a showcase of my own development skills.</b> For the past <b>2 years</b>, I have been working with <b>Star International Company</b>.</p>
             </div>
         </div>
     </div>
