@@ -7,21 +7,12 @@
    <style>
     /* Global Design */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-    
-    body { 
-        background-color: #f0f7ff; 
-        color: #333; 
-        line-height: 1.6; 
-        min-height: 100vh; 
-        position: relative; 
-        overflow-x: hidden; 
-        width: 100%;
-    }
+    body { background-color: #f0f7ff; color: #333; line-height: 1.6; min-height: 100vh; position: relative; overflow-x: hidden; width: 100%; }
     
     nav { background: #fff; padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
     .logo-area { display: flex; align-items: center; gap: 12px; }
     
-    /* TOP SF LOGO - Heartbeat */
+    /* TOP SF LOGO */
     .brand-circle { 
         width: 40px; height: 40px; background-color: #0d47a1; border-radius: 50%; 
         display: flex; justify-content: center; align-items: center; color: white; 
@@ -30,54 +21,44 @@
         position: relative;
     }
 
-    /* --- BARI AUR WAZEH BIJLI --- */
+    /* --- BARI BIJLI (0.75s Timing) --- */
     .lightning-bolt {
         position: fixed;
         width: 6px;
-        height: 150px;
+        height: 180px;
         background: #ffffff;
         box-shadow: 0 0 30px #2196f3, 0 0 60px #0d47a1;
-        top: -250px;
+        top: -350px;
         left: 11%;
         opacity: 0;
         z-index: 9999;
         border-radius: 10px;
-        animation: strikeDownHard 0.8s ease-in forwards;
-        animation-delay: 1.5s;
+        /* Delay 0.75s rakha hai taake thora wait kare phir gire */
+        animation: strikeDownPerfect 0.75s ease-in forwards;
+        animation-delay: 0.75s; 
     }
 
-    @keyframes strikeDownHard {
-        0% { top: -250px; opacity: 0; height: 100px; }
-        30% { opacity: 1; height: 250px; }
+    @keyframes strikeDownPerfect {
+        0% { top: -350px; opacity: 0; height: 180px; }
+        50% { opacity: 1; height: 350px; }
         100% { top: calc(100% - 90px); left: 28px; opacity: 0; height: 10px; }
     }
     
     .logo-text { font-size: 24px; font-weight: bold; color: #0d47a1; letter-spacing: 2px; }
-    
     nav ul { display: flex; list-style: none; gap: 15px; }
-    nav ul li a { 
-        text-decoration: none; color: #1565c0; font-weight: 600; 
-        padding: 10px 22px; border-radius: 12px; background: #ffffff; 
-        transition: all 0.3s ease; border: 2px solid #e3f2fd; font-size: 14px; 
-        cursor: pointer; display: inline-block;
-    }
-    
-    nav ul li a:hover { 
-        background: #2196f3; color: white; transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
-    }
+    nav ul li a { text-decoration: none; color: #1565c0; font-weight: 600; padding: 10px 22px; border-radius: 12px; background: #ffffff; transition: all 0.3s ease; border: 2px solid #e3f2fd; font-size: 14px; cursor: pointer; display: inline-block; }
+    nav ul li a:hover { background: #2196f3; color: white; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); }
 
     .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%); padding: 0 10%; }
     .big-name { font-size: 52px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(to right, #0d47a1, #2196f3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px; display: block; }
     .hero h1 { font-size: 32px; color: #1565c0; margin-bottom: 10px; font-weight: 600; }
-    .hero h3 { font-size: 16px; color: #777; margin-bottom: 25px; text-transform: uppercase; }
     .hero p { font-size: 16px; color: #666; max-width: 650px; margin: 0 auto 35px; }
     
-    /* View My Work Button wapas aa gaya */
+    /* View My Work Button */
     .btn { background: #2196f3; color: white; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
     .btn:hover { background: #0d47a1; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); }
 
-    /* ASK ME BUTTON - Explosion Launch */
+    /* ASK ME BUTTON - Bijli girne ke baad dhamake se zahir hona */
     .ask-btn { 
         background-color: #2196f3; width: 60px; height: 60px; border-radius: 50%; 
         display: flex; justify-content: center; align-items: center; 
@@ -85,40 +66,28 @@
         font-weight: bold; cursor: pointer; border: none; font-size: 14px; 
         opacity: 0;
         animation: boomAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        animation-delay: 2.2s;
+        animation-delay: 1.4s; /* Bijli girte hi zahir hoga */
     }
 
     @keyframes boomAppear {
-        0% { opacity: 0; transform: scale(0) rotate(-45deg); filter: brightness(10); }
-        100% { opacity: 1; transform: scale(1) rotate(0deg); filter: brightness(1); }
+        0% { opacity: 0; transform: scale(0); filter: brightness(10); }
+        100% { opacity: 1; transform: scale(1); filter: brightness(1); }
     }
 
-    /* FOOTER SF LOGO - Heartbeat */
-    .footer-logo { 
-        position: fixed; bottom: 25px; right: 25px; background-color: #0d47a1; 
-        width: 65px; height: 65px; border-radius: 50%; display: flex; 
-        justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(13, 71, 161, 0.4); 
-        color: white; font-weight: bold; font-size: 18px; z-index: 999; 
-        animation: heartbeat 2s ease-in-out infinite;
-    }
+    /* FOOTER LOGO - Heartbeat */
+    .footer-logo { position: fixed; bottom: 25px; right: 25px; background-color: #0d47a1; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(13, 71, 161, 0.4); color: white; font-weight: bold; font-size: 18px; z-index: 999; animation: heartbeat 2s ease-in-out infinite; }
 
-    @keyframes heartbeat {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-    }
+    @keyframes heartbeat { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
     .ask-me-wrapper { position: fixed; bottom: 25px; left: 25px; display: flex; flex-direction: row-reverse; align-items: center; gap: 12px; z-index: 1000; }
     #search-box { display: none; background: white; border: 2.5px solid #2196f3; border-radius: 40px; padding: 6px 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); align-items: center; }
     #search-box input { border: none; outline: none; padding: 8px; width: 160px; font-size: 14px; }
     #search-box button { background: #2196f3; color: white; border: none; border-radius: 30px; padding: 6px 15px; cursor: pointer; font-weight: bold; }
-
     footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; color: #999; }
 </style>
 </head>
 <body>
 
-    <!-- BARI BIJLI -->
     <div class="lightning-bolt"></div>
 
     <nav>
@@ -138,8 +107,7 @@
         <div class="hero-content">
             <span class="big-name">Shakeel Ahmed Khan</span>
             <h1>Digital Expert & AI Specialist</h1>
-            <h3>Founder of SKILLTECH</h3>
-            <p>Specializing in <b>SEO</b>, <b>Creative Adobe Design</b>, and <b>Smart Web Solutions</b> powered by AI.</p>
+            <p>Specializing in <b>SEO</b>, <b>Creative Design</b>, and <b>Smart Solutions</b>.</p>
             <div class="btn-group">
                 <a href="work.html" class="btn">View My Work</a>
             </div>
