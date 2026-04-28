@@ -6,7 +6,7 @@
     <title>SKILLTECH | Shakeel Ahmed Khan</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #f0f7ff; color: #333; line-height: 1.6; }
+        body { background-color: #f0f7ff; color: #333; line-height: 1.6; min-height: 100vh; position: relative; }
 
         /* Navigation */
         nav {
@@ -28,13 +28,9 @@
         nav ul li a { 
             text-decoration: none; color: #1565c0; font-weight: 600; 
             padding: 10px 22px; border-radius: 12px; background: #ffffff;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid #e3f2fd; font-size: 14px; display: inline-block;
+            transition: all 0.3s ease; border: 2px solid #e3f2fd; font-size: 14px;
         }
-        nav ul li a:hover { 
-            background: #2196f3; color: white; transform: translateY(-6px); 
-            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.3);
-        }
+        nav ul li a:hover { background: #2196f3; color: white; transform: translateY(-3px); }
 
         /* Hero Section */
         .hero {
@@ -44,42 +40,70 @@
             padding: 0 10%;
         }
         
-        /* Aapka naam ab sab se Bara aur Bold hai */
         .big-name {
-            font-size: 52px; /* Pehle se bara */
-            font-weight: 900;
-            letter-spacing: 2px;
+            font-size: 52px; font-weight: 900; letter-spacing: 2px;
             text-transform: uppercase;
             background: linear-gradient(to right, #0d47a1, #2196f3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
-            display: block;
+            margin-bottom: 5px; display: block;
         }
 
-        /* Digital Expert wala text chota aur light kar diya */
-        .hero h1 { font-size: 32px; color: #1565c0; margin-bottom: 10px; font-weight: 600; letter-spacing: 1px; }
-        .hero h3 { font-size: 16px; color: #777; margin-bottom: 25px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
-        .hero p { font-size: 16px; color: #666; max-width: 650px; margin: 0 auto 35px; line-height: 1.5; }
+        .hero h1 { font-size: 32px; color: #1565c0; margin-bottom: 10px; font-weight: 600; }
+        .hero h3 { font-size: 16px; color: #777; margin-bottom: 25px; text-transform: uppercase; }
+        .hero p { font-size: 16px; color: #666; max-width: 650px; margin: 0 auto 35px; }
 
         .btn { background: #2196f3; color: white; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
         .btn:hover { background: #0d47a1; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); }
 
-        .whatsapp-float {
-            position: fixed; bottom: 25px; right: 25px; background-color: #0d47a1;
-            width: 65px; height: 65px; border-radius: 50%; display: flex;
-            justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(13, 71, 161, 0.4);
-            color: white; font-weight: bold; text-decoration: none; transition: 0.3s;
+        /* --- ASLI LOGO (RIGHT SIDE) --- */
+        .footer-logo {
+            position: fixed; bottom: 25px; right: 25px;
+            background-color: #0d47a1; width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.4);
+            color: white; font-weight: bold; font-size: 18px; z-index: 999;
         }
-        .whatsapp-float:hover { transform: scale(1.1); }
 
-        footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 24px; }
-            .big-name { font-size: 32px; }
-            nav ul { display: none; }
+        /* --- NAYA ASK ME BUTTON (LEFT SIDE) --- */
+        .ask-me-wrapper {
+            position: fixed; bottom: 25px; left: 25px;
+            display: flex; flex-direction: row-reverse; align-items: center; gap: 12px; z-index: 1000;
         }
+
+        #search-box {
+            display: none; background: white; border: 2.5px solid #2196f3;
+            border-radius: 40px; padding: 6px 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            align-items: center; animation: popIn 0.3s ease;
+        }
+
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        #search-box input { border: none; outline: none; padding: 8px; width: 160px; font-size: 14px; }
+        #search-box button { background: #2196f3; color: white; border: none; border-radius: 30px; padding: 6px 15px; cursor: pointer; font-weight: bold; }
+
+        .ask-btn {
+            background-color: #2196f3; width: 60px; height: 60px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);
+            color: white; font-weight: bold; cursor: pointer; border: none;
+            font-size: 14px; transition: 0.3s;
+        }
+        .ask-btn:hover { background: #0d47a1; transform: scale(1.1); }
+
+        /* Modal / Popup */
+        .ans-modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(5px);
+        }
+        .ans-modal-content {
+            background: white; margin: 15% auto; padding: 30px; border-radius: 20px;
+            width: 90%; max-width: 400px; text-align: left; position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3); border-top: 8px solid #2196f3;
+        }
+        .close-x { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 26px; color: #bbb; }
+
+        footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; color: #999; }
     </style>
 </head>
 <body>
@@ -99,25 +123,72 @@
 
     <section class="hero">
         <div class="hero-content">
-            <!-- GRADIENT BOLD BIG NAME -->
             <span class="big-name">Shakeel Ahmed Khan</span>
-            
             <h1>Digital Expert & AI Specialist</h1>
             <h3>Founder of SKILLTECH</h3>
-            
             <p>Specializing in <b>SEO</b>, <b>Creative Adobe Design</b>, and <b>Smart Web Solutions</b> powered by AI.</p>
-            
             <div class="btn-group">
                 <a href="work.html" class="btn">View My Work</a>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me" class="whatsapp-float" title="Contact Us">SF</a>
+    <!-- NAYA BUTTON (LEFT SIDE) -->
+    <div class="ask-me-wrapper">
+        <div id="search-box">
+            <input type="text" id="userInput" placeholder="Ask me anything...">
+            <button onclick="askGeminiAI()">Ask</button>
+        </div>
+        <button class="ask-btn" onclick="toggleSearchBox()">Ask Me</button>
+    </div>
 
-    <footer>
-        © 2026 SKILLTECH - All Rights Reserved
-    </footer>
+    <!-- ASLI LOGO (RIGHT SIDE) -->
+    <div class="footer-logo">SF</div>
 
+    <!-- POPUP -->
+    <div id="popupWindow" class="ans-modal">
+        <div class="ans-modal-content">
+            <span class="close-x" onclick="closePopup()">&times;</span>
+            <h2 style="color: #2196f3; margin-bottom: 15px;">Shakeel's Response</h2>
+            <div id="responseText" style="font-size: 16px; color: #444; line-height: 1.6;">Thinking...</div>
+        </div>
+    </div>
+
+    <footer> © 2026 SKILLTECH - All Rights Reserved </footer>
+
+    <script>
+        const API_KEY = "YAHAN_APNI_API_KEY_DALEIN"; 
+
+        function toggleSearchBox() {
+            var box = document.getElementById("search-box");
+            box.style.display = (box.style.display === "flex") ? "none" : "flex";
+        }
+
+        async function askGeminiAI() {
+            const input = document.getElementById("userInput").value;
+            const responseDiv = document.getElementById("responseText");
+            const popup = document.getElementById("popupWindow");
+            if (!input.trim()) return;
+
+            popup.style.display = "block";
+            document.getElementById("search-box").style.display = "none";
+            responseDiv.innerHTML = "<i>Searching for answer...</i>";
+
+            try {
+                const response = await fetch(`https://googleapis.com{API_KEY}`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: input }] }] })
+                });
+                const data = await response.json();
+                responseDiv.innerHTML = data.candidates[0].content.parts[0].text.replace(/\n/g, "<br>"); 
+            } catch (error) {
+                responseDiv.innerHTML = "Sorry, Shakeel's AI is busy. Check your API Key.";
+            }
+            document.getElementById("userInput").value = "";
+        }
+
+        function closePopup() { document.getElementById("popupWindow").style.display = "none"; }
+    </script>
 </body>
 </html>
