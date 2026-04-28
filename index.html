@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SKILLTECH | Shakeel Ahmed Khan</title>
    <style>
-    /* Desktop aur General Design */
+    /* Global Design */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
     
     body { 
@@ -23,9 +23,28 @@
     .brand-circle { width: 40px; height: 40px; background-color: #0d47a1; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; font-size: 18px; border: 2px solid #bbdefb; }
     .logo-text { font-size: 24px; font-weight: bold; color: #0d47a1; letter-spacing: 2px; }
     
+    /* Navigation Buttons - Hover Effect Wapis Add Kiya */
     nav ul { display: flex; list-style: none; gap: 15px; }
-    nav ul li a { text-decoration: none; color: #1565c0; font-weight: 600; padding: 10px 22px; border-radius: 12px; background: #ffffff; transition: 0.3s; border: 2px solid #e3f2fd; font-size: 14px; cursor: pointer; }
-    nav ul li a:hover { background: #2196f3; color: white; transform: translateY(-3px); }
+    nav ul li a { 
+        text-decoration: none; 
+        color: #1565c0; 
+        font-weight: 600; 
+        padding: 10px 22px; 
+        border-radius: 12px; 
+        background: #ffffff; 
+        transition: all 0.3s ease; /* Transition smooth rakhi hai */
+        border: 2px solid #e3f2fd; 
+        font-size: 14px; 
+        cursor: pointer;
+        display: inline-block; /* Ubharne ke liye zaroori hai */
+    }
+    
+    nav ul li a:hover { 
+        background: #2196f3; 
+        color: white; 
+        transform: translateY(-5px); /* Ye button ko oopar ubhare ga */
+        box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+    }
 
     .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%); padding: 0 10%; }
     .big-name { font-size: 52px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(to right, #0d47a1, #2196f3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px; display: block; }
@@ -54,7 +73,6 @@
         nav ul { gap: 5px; flex-wrap: wrap; justify-content: center; width: 100%; padding: 0; }
         nav ul li a { padding: 8px 10px; font-size: 11px; }
         .hero { height: auto; padding: 80px 5%; width: 100%; }
-        .big-name { font-size: 32px; }
         .ans-modal-content { margin: 30% auto; padding: 25px; }
     }
 </style>
