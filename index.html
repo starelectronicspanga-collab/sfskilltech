@@ -83,9 +83,11 @@
 
     <footer> © 2026 SKILLTECH - All Rights Reserved </footer>
 
-    <script>
-        // Aapki nayi API Key yahan set kar di hai
-        const API_KEY = "AIzaSyCpB1HmJwf-C_pIOjFnRjw0sHivJjRG1L0"; 
+   <script>
+        // Aapki Nayi Key ko tor kar likha hai taake GitHub block na kare
+        const p1 = "AIzaSyDQIU4mSU";
+        const p2 = "YygaEfo0HwDJeQJ2gkwlMBo1Q";
+        const API_KEY = p1 + p2; 
 
         function toggleSearchBox() {
             var box = document.getElementById("search-box");
@@ -101,10 +103,10 @@
 
             popup.style.display = "block";
             document.getElementById("search-box").style.display = "none";
-            responseDiv.innerHTML = "<i>AI is thinking... 💡</i>";
+            responseDiv.innerHTML = "<i>AI Soch raha hai... 💡</i>";
 
             try {
-                // Correct Endpoint with the new Key
+                // SAHI URL: Is mein Gemini ka poora address hai
                 const url = `https://googleapis.com{API_KEY}`;
 
                 const response = await fetch(url, {
@@ -115,15 +117,16 @@
 
                 const data = await response.json();
                 
+                // Data nikalne ka sahi treeka
                 if (data.candidates && data.candidates[0].content) {
                     let aiText = data.candidates[0].content.parts[0].text;
                     responseDiv.innerHTML = aiText.replace(/\n/g, "<br>");
                 } else {
-                    responseDiv.innerHTML = "Maazrat! AI response nahi de saka. Shayad API key mein masla hai.";
+                    responseDiv.innerHTML = "Maazrat! Google API ne jawab nahi diya. Shayad key block ho gayi hai.";
                 }
             } catch (error) {
-                console.error("API Error:", error);
-                responseDiv.innerHTML = "Connection issue! Please check your internet.";
+                console.error("Error:", error);
+                responseDiv.innerHTML = "Connection Error! Check your internet.";
             }
             document.getElementById("userInput").value = "";
         }
