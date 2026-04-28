@@ -133,7 +133,7 @@
         </div>
     </section>
 
-    <!-- NAYA BUTTON (LEFT SIDE) -->
+    <!-- ASK ME BUTTON (LEFT SIDE) -->
     <div class="ask-me-wrapper">
         <div id="search-box">
             <input type="text" id="userInput" placeholder="Ask me anything...">
@@ -142,7 +142,7 @@
         <button class="ask-btn" onclick="toggleSearchBox()">Ask Me</button>
     </div>
 
-    <!-- ASLI LOGO (RIGHT SIDE) -->
+    <!-- LOGO (RIGHT SIDE) -->
     <div class="footer-logo">SF</div>
 
     <!-- POPUP -->
@@ -157,7 +157,8 @@
     <footer> © 2026 SKILLTECH - All Rights Reserved </footer>
 
     <script>
-        const API_KEY = "YAHAN_APNI_API_KEY_DALEIN"; 
+        // Aapki API Key yahan set kar di gayi hai
+        const API_KEY = "AIzaSyB_ZbFGhTHT5X8BG572--pOhjCJh-bzkp0"; 
 
         function toggleSearchBox() {
             var box = document.getElementById("search-box");
@@ -181,9 +182,14 @@
                     body: JSON.stringify({ contents: [{ parts: [{ text: input }] }] })
                 });
                 const data = await response.json();
-                responseDiv.innerHTML = data.candidates[0].content.parts[0].text.replace(/\n/g, "<br>"); 
+                
+                if(data.candidates && data.candidates[0].content) {
+                    responseDiv.innerHTML = data.candidates[0].content.parts[0].text.replace(/\n/g, "<br>"); 
+                } else {
+                    responseDiv.innerHTML = "I am not sure about that. Please ask something else!";
+                }
             } catch (error) {
-                responseDiv.innerHTML = "Sorry, Shakeel's AI is busy. Check your API Key.";
+                responseDiv.innerHTML = "Sorry, Shakeel's AI is busy. Check your internet connection.";
             }
             document.getElementById("userInput").value = "";
         }
