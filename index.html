@@ -27,11 +27,33 @@
         display: flex; justify-content: center; align-items: center; color: white; 
         font-weight: bold; font-size: 18px; border: 2px solid #bbdefb;
         animation: heartbeat 2s ease-in-out infinite;
+        position: relative;
     }
     
+    /* BIJLI KI LIGHT (Lightning Effect) */
+    .lightning {
+        position: fixed;
+        width: 4px;
+        height: 40px;
+        background: linear-gradient(to bottom, #2196f3, #ffffff);
+        box-shadow: 0 0 20px #2196f3;
+        top: 20px;
+        left: 11%; /* Top Logo ke paas se shuru hogi */
+        opacity: 0;
+        z-index: 9999;
+        border-radius: 50%;
+        animation: strikeDown 1.5s ease-in-out forwards;
+        animation-delay: 1s; /* Site khulne ke 1 second baad bijli giregi */
+    }
+
+    @keyframes strikeDown {
+        0% { top: 20px; left: 11%; opacity: 1; height: 0; }
+        50% { height: 100px; opacity: 1; }
+        100% { top: calc(100% - 85px); left: 25px; opacity: 0; height: 0; }
+    }
+
     .logo-text { font-size: 24px; font-weight: bold; color: #0d47a1; letter-spacing: 2px; }
     
-    /* Navigation Buttons */
     nav ul { display: flex; list-style: none; gap: 15px; }
     nav ul li a { 
         text-decoration: none; color: #1565c0; font-weight: 600; 
@@ -48,13 +70,26 @@
     .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%); padding: 0 10%; }
     .big-name { font-size: 52px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(to right, #0d47a1, #2196f3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px; display: block; }
     .hero h1 { font-size: 32px; color: #1565c0; margin-bottom: 10px; font-weight: 600; }
-    .hero h3 { font-size: 16px; color: #777; margin-bottom: 25px; text-transform: uppercase; }
-    .hero p { font-size: 16px; color: #666; max-width: 650px; margin: 0 auto 35px; }
-    
-    .btn { background: #2196f3; color: white; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
-    .btn:hover { background: #0d47a1; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); }
 
-    /* BOTTOM SF LOGO - Heartbeat */
+    /* ASK ME BUTTON - Light ke baad zahir hoga */
+    .ask-btn { 
+        background-color: #2196f3; width: 60px; height: 60px; border-radius: 50%; 
+        display: flex; justify-content: center; align-items: center; 
+        box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3); color: white; 
+        font-weight: bold; cursor: pointer; border: none; font-size: 14px; 
+        transition: 0.3s;
+
+        opacity: 0;
+        animation: flashCreate 0.5s ease-out forwards;
+        animation-delay: 2.5s; /* Bijli girne ke foran baad */
+    }
+
+    @keyframes flashCreate {
+        0% { opacity: 0; transform: scale(0.5); filter: brightness(5); }
+        100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+    }
+
+    /* FOOTER SF LOGO - Heartbeat */
     .footer-logo { 
         position: fixed; bottom: 25px; right: 25px; background-color: #0d47a1; 
         width: 65px; height: 65px; border-radius: 50%; display: flex; 
@@ -69,31 +104,12 @@
         100% { transform: scale(1); }
     }
 
-    /* ASK ME BUTTON - Flash In with 3s Delay */
-    .ask-btn { 
-        background-color: #2196f3; width: 60px; height: 60px; border-radius: 50%; 
-        display: flex; justify-content: center; align-items: center; 
-        box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3); color: white; 
-        font-weight: bold; cursor: pointer; border: none; font-size: 14px; 
-        transition: 0.3s;
-
-        opacity: 0; /* Shuru mein gayab */
-        animation: flashIn 0.6s ease-out forwards;
-        animation-delay: 3s; /* 3 second ka wait */
-    }
-
-    @keyframes flashIn {
-        0% { opacity: 0; transform: scale(0.5); filter: brightness(5); }
-        50% { opacity: 1; transform: scale(1.2); filter: brightness(2); }
-        100% { opacity: 1; transform: scale(1); filter: brightness(1); }
-    }
-
     .ask-me-wrapper { position: fixed; bottom: 25px; left: 25px; display: flex; flex-direction: row-reverse; align-items: center; gap: 12px; z-index: 1000; }
     #search-box { display: none; background: white; border: 2.5px solid #2196f3; border-radius: 40px; padding: 6px 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); align-items: center; }
     #search-box input { border: none; outline: none; padding: 8px; width: 160px; font-size: 14px; }
     #search-box button { background: #2196f3; color: white; border: none; border-radius: 30px; padding: 6px 15px; cursor: pointer; font-weight: bold; }
 
-    /* Modals */
+    /* Modals Design */
     .ans-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(5px); }
     .ans-modal-content { background: white; margin: 10% auto; padding: 35px; border-radius: 20px; width: 90%; max-width: 500px; text-align: left; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border-top: 10px solid #2196f3; }
     .close-x { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 26px; color: #bbb; }
@@ -101,13 +117,14 @@
 
     @media (max-width: 768px) {
         nav { padding: 15px 5%; flex-direction: column; gap: 15px; text-align: center; }
-        nav ul { gap: 5px; flex-wrap: wrap; justify-content: center; }
-        nav ul li a { padding: 8px 10px; font-size: 11px; }
-        .hero { height: auto; padding: 80px 5%; }
+        .lightning { display: none; } /* Mobile par light hide rakhi hai complexity se bachne ke liye */
     }
 </style>
 </head>
 <body>
+
+    <!-- Bijli ki Animation wali Div -->
+    <div class="lightning"></div>
 
     <nav>
         <div class="logo-area">
@@ -135,19 +152,18 @@
         </div>
     </section>
 
-    <!-- About Me Popup -->
     <div id="aboutPopup" class="ans-modal">
         <div class="ans-modal-content">
             <span class="close-x" onclick="closeAboutPopup()">&times;</span>
-            <h2 style="color: #0d47a1; margin-bottom: 15px;">About Shakeel Ahmed Khan</h2>
-            <p>Founder of <b>SF SKILLTECH</b>, focused on digital success.</p>
+            <h2 style="color: #0d47a1; margin-bottom: 15px;">About Me</h2>
+            <p>I provide professional Digital Solutions.</p>
         </div>
     </div>
 
     <div class="ask-me-wrapper">
         <div id="search-box">
             <input type="text" id="userInput" placeholder="Ask me anything...">
-            <button onclick="askGeminiAI()">Ask</button>
+            <button>Ask</button>
         </div>
         <button class="ask-btn" onclick="toggleSearchBox()">Ask Me</button>
     </div>
