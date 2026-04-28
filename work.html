@@ -25,11 +25,14 @@
             width: 100%;
         }
         .logo-area { display: flex; align-items: center; gap: 12px; }
+
+        /* SF LOGO - HEARTBEAT WAPIS ADD KIYA */
         .brand-circle {
             width: 40px; height: 40px; background-color: #0d47a1;
             border-radius: 50%; display: flex; justify-content: center;
             align-items: center; color: white; font-weight: bold; font-size: 18px;
             border: 2px solid #bbdefb;
+            animation: heartbeat 2s ease-in-out infinite; /* Dharakne wala effect */
         }
         .logo-text { font-size: 24px; font-weight: bold; color: #0d47a1; letter-spacing: 2px; }
         
@@ -60,7 +63,14 @@
             100% { top: calc(100% - 90px); left: 28px; opacity: 0; height: 10px; }
         }
 
-        /* ASK ME BUTTON - Flash In */
+        /* HEARTBEAT ANIMATION */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* ASK ME BUTTON */
         .ask-btn { 
             background-color: #2196f3; width: 60px; height: 60px; border-radius: 50%; 
             display: flex; justify-content: center; align-items: center; 
@@ -84,7 +94,6 @@
         /* Work Section */
         .work-container { padding: 60px 10%; text-align: center; width: 100%; }
         .work-container h1 { color: #0d47a1; margin-bottom: 10px; font-size: 36px; }
-        .work-container p { color: #666; margin-bottom: 40px; }
 
         .work-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; width: 100%;
@@ -96,16 +105,6 @@
             transition: 0.3s; text-align: left;
         }
         .work-box:hover { transform: translateY(-10px); }
-        .work-box h3 { color: #1565c0; margin: 15px 0 10px; font-size: 20px; }
-
-        .color-box {
-            width: 100%; height: 160px; border-radius: 10px; 
-            display: flex; justify-content: center; align-items: center;
-            color: white; font-size: 45px;
-        }
-        .blue-1 { background: linear-gradient(45deg, #2196f3, #64b5f6); }
-        .blue-2 { background: linear-gradient(45deg, #1976d2, #42a5f5); }
-        .blue-3 { background: linear-gradient(45deg, #0d47a1, #1e88e5); }
 
         .btn-home {
             margin-top: 50px; background: #2196f3; color: white;
@@ -124,7 +123,6 @@
             nav { padding: 15px 5%; flex-direction: column; gap: 15px; }
             nav ul { gap: 5px; flex-wrap: wrap; justify-content: center; }
             nav ul li a { padding: 8px 10px; font-size: 11px; }
-            .ans-modal-content { margin: 30% auto; padding: 25px; }
         }
     </style>
 </head>
@@ -152,17 +150,14 @@
 
         <div class="work-grid">
             <div class="work-box">
-                <div class="color-box blue-1">🎨</div>
                 <h3>Creative Design & AI</h3>
                 <p>Advanced product photography and creative editing using Adobe & AI.</p>
             </div>
             <div class="work-box">
-                <div class="color-box blue-2">📈</div>
                 <h3>Advanced SEO</h3>
                 <p>Full optimization for better search engine rankings and speed.</p>
             </div>
             <div class="work-box">
-                <div class="color-box blue-3">💻</div>
                 <h3>System Operations</h3>
                 <p>Efficient management of business workflows and inventory.</p>
             </div>
@@ -175,7 +170,7 @@
         <div class="ans-modal-content">
             <span class="close-x" onclick="closeAboutPopup()">&times;</span>
             <h2 style="color: #0d47a1; margin-bottom: 15px;">About Shakeel Ahmed Khan</h2>
-            <p>Founder of SF SKILLTECH, specializing in Professional Digital Solutions.</p>
+            <p>Founder of SF SKILLTECH, Professional Digital Solutions.</p>
         </div>
     </div>
 
@@ -188,9 +183,7 @@
         <button class="ask-btn" onclick="toggleSearchBox()">Ask Me</button>
     </div>
 
-    <footer>
-        <p>© 2026 SKILLTECH - All Rights Reserved</p>
-    </footer>
+    <footer><p>© 2026 SKILLTECH - All Rights Reserved</p></footer>
 
     <script>
         function openAboutPopup() { document.getElementById("aboutPopup").style.display = "block"; }
@@ -198,9 +191,6 @@
         function toggleSearchBox() {
             var box = document.getElementById("search-box");
             box.style.display = (box.style.display === "flex") ? "none" : "flex";
-        }
-        function askGeminiAI() {
-            alert("AI Feature Coming Soon! You asked: " + document.getElementById("userInput").value);
         }
     </script>
 </body>
