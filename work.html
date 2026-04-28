@@ -8,18 +8,15 @@
         /* General Settings */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         
-        /* Body Fix for Mobile Stability */
         body { 
             background-color: #f0f7ff; 
             color: #333; 
-            direction: ltr; 
-            text-align: left; 
             overflow-x: hidden; 
             width: 100%;
             position: relative;
         }
 
-        /* Updated Navigation */
+        /* Navigation */
         nav {
             background: #fff; padding: 15px 10%; display: flex;
             justify-content: space-between; align-items: center;
@@ -38,25 +35,51 @@
         
         nav ul { display: flex; list-style: none; gap: 15px; }
         nav ul li a { 
-            text-decoration: none; 
-            color: #1565c0; 
-            font-weight: 600; 
-            padding: 10px 22px;
-            border-radius: 12px;
-            background: #ffffff;
+            text-decoration: none; color: #1565c0; font-weight: 600; 
+            padding: 10px 22px; border-radius: 12px; background: #ffffff;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid #e3f2fd;
-            font-size: 14px;
-            display: inline-block;
-            cursor: pointer;
+            border: 2px solid #e3f2fd; font-size: 14px; display: inline-block; cursor: pointer;
         }
         nav ul li a:hover { 
-            background: #2196f3; 
-            color: white; 
-            transform: translateY(-6px); 
-            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.3);
-            border-color: #2196f3;
+            background: #2196f3; color: white; transform: translateY(-6px); 
+            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.3); border-color: #2196f3;
         }
+
+        /* --- BARI BIJLI (0.75s Timing) --- */
+        .lightning-bolt {
+            position: fixed; width: 6px; height: 180px; background: #ffffff;
+            box-shadow: 0 0 30px #2196f3, 0 0 60px #0d47a1;
+            top: -350px; left: 11%; opacity: 0; z-index: 9999; border-radius: 10px;
+            animation: strikeDownPerfect 0.75s ease-in forwards;
+            animation-delay: 0.75s; 
+        }
+
+        @keyframes strikeDownPerfect {
+            0% { top: -350px; opacity: 0; height: 180px; }
+            50% { opacity: 1; height: 350px; }
+            100% { top: calc(100% - 90px); left: 28px; opacity: 0; height: 10px; }
+        }
+
+        /* ASK ME BUTTON - Flash In */
+        .ask-btn { 
+            background-color: #2196f3; width: 60px; height: 60px; border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; 
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3); color: white; 
+            font-weight: bold; cursor: pointer; border: none; font-size: 14px; 
+            opacity: 0;
+            animation: boomAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 1.4s;
+        }
+
+        @keyframes boomAppear {
+            0% { opacity: 0; transform: scale(0); filter: brightness(10); }
+            100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+        }
+
+        .ask-me-wrapper { position: fixed; bottom: 25px; left: 25px; display: flex; flex-direction: row-reverse; align-items: center; gap: 12px; z-index: 1000; }
+        #search-box { display: none; background: white; border: 2.5px solid #2196f3; border-radius: 40px; padding: 6px 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); align-items: center; }
+        #search-box input { border: none; outline: none; padding: 8px; width: 160px; font-size: 14px; }
+        #search-box button { background: #2196f3; color: white; border: none; border-radius: 30px; padding: 6px 15px; cursor: pointer; font-weight: bold; }
 
         /* Work Section */
         .work-container { padding: 60px 10%; text-align: center; width: 100%; }
@@ -64,10 +87,7 @@
         .work-container p { color: #666; margin-bottom: 40px; }
 
         .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            width: 100%;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; width: 100%;
         }
 
         .work-box {
@@ -77,12 +97,7 @@
         }
         .work-box:hover { transform: translateY(-10px); }
         .work-box h3 { color: #1565c0; margin: 15px 0 10px; font-size: 20px; }
-        .work-box p { font-size: 14px; line-height: 1.6; color: #555; }
-        .work-box ul { margin-top: 10px; list-style: none; }
-        .work-box li { font-size: 13px; color: #444; margin-bottom: 5px; position: relative; padding-left: 20px; }
-        .work-box li::before { content: '✔'; position: absolute; left: 0; color: #2196f3; }
 
-        /* Visual Boxes */
         .color-box {
             width: 100%; height: 160px; border-radius: 10px; 
             display: flex; justify-content: center; align-items: center;
@@ -92,32 +107,30 @@
         .blue-2 { background: linear-gradient(45deg, #1976d2, #42a5f5); }
         .blue-3 { background: linear-gradient(45deg, #0d47a1, #1e88e5); }
 
-        /* Home Button Style */
         .btn-home {
             margin-top: 50px; background: #2196f3; color: white;
             padding: 14px 35px; text-decoration: none; border-radius: 8px;
             font-weight: bold; display: inline-block; transition: 0.3s;
             box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
         }
-        .btn-home:hover { background: #0d47a1; transform: translateY(-3px); }
 
-        /* Modals Design */
         .ans-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(5px); }
         .ans-modal-content { background: white; margin: 10% auto; padding: 35px; border-radius: 20px; width: 90%; max-width: 500px; text-align: left; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border-top: 10px solid #2196f3; }
         .close-x { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 26px; color: #bbb; }
 
         footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; margin-top: 50px; width: 100%; }
 
-        /* MOBILE VERSION */
         @media (max-width: 768px) {
-            nav { padding: 15px 5%; flex-direction: column; gap: 15px; text-align: center; }
-            nav ul { gap: 5px; flex-wrap: wrap; justify-content: center; width: 100%; }
+            nav { padding: 15px 5%; flex-direction: column; gap: 15px; }
+            nav ul { gap: 5px; flex-wrap: wrap; justify-content: center; }
             nav ul li a { padding: 8px 10px; font-size: 11px; }
             .ans-modal-content { margin: 30% auto; padding: 25px; }
         }
     </style>
 </head>
 <body>
+
+    <div class="lightning-bolt"></div>
 
     <nav>
         <div class="logo-area">
@@ -142,76 +155,53 @@
                 <div class="color-box blue-1">🎨</div>
                 <h3>Creative Design & AI</h3>
                 <p>Advanced product photography and creative editing using Adobe & AI.</p>
-                <ul>
-                    <li>Professional Product Image Preparation</li>
-                    <li>High-Quality Ad Banner Design</li>
-                    <li>AI-Powered Visual Enhancement</li>
-                </ul>
             </div>
-
             <div class="work-box">
                 <div class="color-box blue-2">📈</div>
                 <h3>Advanced SEO</h3>
                 <p>Full optimization for better search engine rankings and speed.</p>
-                <ul>
-                    <li>Expert Meta Data & Tag Management (H1, H2)</li>
-                    <li>Website Speed & Performance Optimization</li>
-                    <li>Image Alt-Text & Quality Management</li>
-                </ul>
             </div>
-
             <div class="work-box">
                 <div class="color-box blue-3">💻</div>
                 <h3>System Operations</h3>
                 <p>Efficient management of business workflows and inventory.</p>
-                <ul>
-                    <li>Professional Stock-In & Stock-Out Tracking</li>
-                    <li>Accurate Inventory Data Entry</li>
-                    <li>AI-Directed Web Project Management</li>
-                </ul>
             </div>
         </div>
-
         <a href="index.html" class="btn-home">← Back to Home Page</a>
     </div>
 
-    <!-- About Me Popup Window -->
+    <!-- About Popup -->
     <div id="aboutPopup" class="ans-modal">
         <div class="ans-modal-content">
             <span class="close-x" onclick="closeAboutPopup()">&times;</span>
             <h2 style="color: #0d47a1; margin-bottom: 15px;">About Shakeel Ahmed Khan</h2>
-            <div style="font-size: 16px; color: #444; line-height: 1.6;">
-                <p>I am the founder of <b>SF SKILLTECH</b>, and my mission is to empower businesses to succeed in the digital world. 🚀</p>
-                <br>
-                <p>For the past <b>2 years</b>, I have been working with <b>Star International</b>, specializing in these core digital domains. This professional journey has sharpened my expertise in delivering high-quality results.</p>
-                <br>
-                <p>Using modern technology and AI, I provide professional <b>SEO</b>, <b>Graphic Design</b>, and <b>Web Solutions</b>. My goal is to ensure every project reflects quality and innovation.</p>
-                <br>
-                <p style="color: #2196f3; font-weight: bold;">"Technology is better when it brings people together."</p>
-            </div>
+            <p>Founder of SF SKILLTECH, specializing in Professional Digital Solutions.</p>
         </div>
     </div>
 
+    <!-- Ask Me Wrapper -->
+    <div class="ask-me-wrapper">
+        <div id="search-box">
+            <input type="text" id="userInput" placeholder="Ask me anything...">
+            <button onclick="askGeminiAI()">Ask</button>
+        </div>
+        <button class="ask-btn" onclick="toggleSearchBox()">Ask Me</button>
+    </div>
+
     <footer>
-        © 2026 SKILLTECH - All Rights Reserved
+        <p>© 2026 SKILLTECH - All Rights Reserved</p>
     </footer>
 
     <script>
-        function openAboutPopup() {
-            document.getElementById("aboutPopup").style.display = "block";
+        function openAboutPopup() { document.getElementById("aboutPopup").style.display = "block"; }
+        function closeAboutPopup() { document.getElementById("aboutPopup").style.display = "none"; }
+        function toggleSearchBox() {
+            var box = document.getElementById("search-box");
+            box.style.display = (box.style.display === "flex") ? "none" : "flex";
         }
-        function closeAboutPopup() {
-            document.getElementById("aboutPopup").style.display = "none";
-        }
-        
-        // Modal ke bahar click karne se band ho jaye
-        window.onclick = function(event) {
-            let modal = document.getElementById("aboutPopup");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+        function askGeminiAI() {
+            alert("AI Feature Coming Soon! You asked: " + document.getElementById("userInput").value);
         }
     </script>
-
 </body>
 </html>
