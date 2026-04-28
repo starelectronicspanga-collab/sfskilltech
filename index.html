@@ -73,20 +73,19 @@
     .footer-logo { position: fixed; bottom: 25px; right: 25px; background-color: #0d47a1; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; animation: heartbeat 2s infinite; z-index: 999; }
     footer { text-align: center; padding: 25px; color: #999; }
 
-    /* --- MOBILE VERSION FORCE FIX --- */
+    /* --- MOBILE VERSION FIXED --- */
     @media only screen and (max-width: 768px) {
-        nav { padding: 10px 2% !important; flex-direction: column !important; }
-        nav ul { display: flex !important; gap: 4px !important; flex-wrap: wrap !important; justify-content: center !important; width: 100% !important; }
+        nav { padding: 10px 5% !important; flex-direction: column !important; gap: 12px !important; }
+        nav ul { display: flex !important; gap: 4px !important; flex-wrap: wrap !important; justify-content: center !important; width: 100% !important; padding: 0 !important; }
         nav ul li a { 
-            padding: 7px 8px !important; 
-            font-size: 9px !important; 
-            white-space: nowrap !important; /* Forces one line */
-            display: block !important;
-            letter-spacing: 0px !important;
+            padding: 7px 9px !important; 
+            font-size: 10px !important; 
+            white-space: nowrap !important; /* About Me stays in one line */
+            display: inline-block !important;
         }
         .hero { height: auto !important; padding: 50px 5% !important; }
-        .hero-content h1 { font-size: 28px !important; }
-        .hero-content h2 { font-size: 18px !important; }
+        .hero-content h1 { font-size: 30px !important; }
+        .hero-content h2 { font-size: 20px !important; }
     }
 </style>
 </head>
@@ -99,9 +98,9 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="work.html">Work</a></li>
-            <li><a onclick="openAboutPopup()">About Me</a></li>
+            <li><a href="services.html">Services</a></li> <!-- Order Fixed -->
+            <li><a onclick="openAboutPopup()">About Me</a></li> <!-- Order Fixed -->
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="services.html">Services</a></li>
         </ul>
     </nav>
 
@@ -115,6 +114,7 @@
         </div>
     </section>
 
+    <!-- AI Popup -->
     <div id="aiPopup" class="ans-modal">
         <div class="ans-modal-content">
             <span class="close-x" onclick="closePopup()">&times;</span>
@@ -123,6 +123,7 @@
         </div>
     </div>
 
+    <!-- About Me Popup -->
     <div id="aboutPopup" class="ans-modal">
         <div class="ans-modal-content">
             <span class="close-x" onclick="closePopup()">&times;</span>
