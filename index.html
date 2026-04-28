@@ -30,25 +30,25 @@
         position: relative;
     }
 
-    /* --- SUPER FAST BIJLI (0.75s) --- */
+    /* --- BARI AUR WAZEH BIJLI --- */
     .lightning-bolt {
         position: fixed;
         width: 6px;
-        height: 180px;
+        height: 150px;
         background: #ffffff;
         box-shadow: 0 0 30px #2196f3, 0 0 60px #0d47a1;
-        top: -350px;
+        top: -250px;
         left: 11%;
         opacity: 0;
         z-index: 9999;
         border-radius: 10px;
-        animation: strikeDownPerfect 0.75s ease-in forwards;
-        animation-delay: 0.75s; 
+        animation: strikeDownHard 0.8s ease-in forwards;
+        animation-delay: 1.5s;
     }
 
-    @keyframes strikeDownPerfect {
-        0% { top: -350px; opacity: 0; height: 180px; }
-        50% { opacity: 1; height: 350px; }
+    @keyframes strikeDownHard {
+        0% { top: -250px; opacity: 0; height: 100px; }
+        30% { opacity: 1; height: 250px; }
         100% { top: calc(100% - 90px); left: 28px; opacity: 0; height: 10px; }
     }
     
@@ -73,10 +73,11 @@
     .hero h3 { font-size: 16px; color: #777; margin-bottom: 25px; text-transform: uppercase; }
     .hero p { font-size: 16px; color: #666; max-width: 650px; margin: 0 auto 35px; }
     
+    /* View My Work Button wapas aa gaya */
     .btn { background: #2196f3; color: white; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
     .btn:hover { background: #0d47a1; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); }
 
-    /* ASK ME BUTTON */
+    /* ASK ME BUTTON - Explosion Launch */
     .ask-btn { 
         background-color: #2196f3; width: 60px; height: 60px; border-radius: 50%; 
         display: flex; justify-content: center; align-items: center; 
@@ -84,12 +85,12 @@
         font-weight: bold; cursor: pointer; border: none; font-size: 14px; 
         opacity: 0;
         animation: boomAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        animation-delay: 1.4s;
+        animation-delay: 2.2s;
     }
 
     @keyframes boomAppear {
-        0% { opacity: 0; transform: scale(0); filter: brightness(10); }
-        100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+        0% { opacity: 0; transform: scale(0) rotate(-45deg); filter: brightness(10); }
+        100% { opacity: 1; transform: scale(1) rotate(0deg); filter: brightness(1); }
     }
 
     /* FOOTER SF LOGO - Heartbeat */
@@ -112,23 +113,12 @@
     #search-box input { border: none; outline: none; padding: 8px; width: 160px; font-size: 14px; }
     #search-box button { background: #2196f3; color: white; border: none; border-radius: 30px; padding: 6px 15px; cursor: pointer; font-weight: bold; }
 
-    /* Modals Design */
-    .ans-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(5px); }
-    .ans-modal-content { background: white; margin: 10% auto; padding: 35px; border-radius: 20px; width: 90%; max-width: 500px; text-align: left; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border-top: 10px solid #2196f3; }
-    .close-x { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 26px; color: #bbb; }
     footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; color: #999; }
-
-    @media (max-width: 768px) {
-        nav { padding: 15px 5%; flex-direction: column; gap: 15px; text-align: center; }
-        nav ul { gap: 5px; flex-wrap: wrap; justify-content: center; }
-        nav ul li a { padding: 8px 10px; font-size: 11px; }
-        .hero { height: auto; padding: 80px 5%; }
-        .ans-modal-content { margin: 30% auto; padding: 25px; }
-    }
 </style>
 </head>
 <body>
 
+    <!-- BARI BIJLI -->
     <div class="lightning-bolt"></div>
 
     <nav>
@@ -140,7 +130,6 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a onclick="openAboutPopup()">About Me</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
@@ -157,21 +146,6 @@
         </div>
     </section>
 
-    <!-- Professional About Me Popup -->
-    <div id="aboutPopup" class="ans-modal">
-        <div class="ans-modal-content">
-            <span class="close-x" onclick="closeAboutPopup()">&times;</span>
-            <h2 style="color: #0d47a1; margin-bottom: 15px;">About Shakeel Ahmed Khan</h2>
-            <div style="font-size: 16px; color: #444; line-height: 1.6;">
-                <p>I am the founder of <b>SF SKILLTECH</b>, and my mission is to empower businesses to succeed in the digital world. 🚀</p>
-                <br>
-                <p>For the past <b>2 years</b>, I have been working with <b>Star International</b>. Using modern technology and AI, I provide professional <b>SEO</b>, <b>Graphic Design</b>, and <b>Web Solutions</b>.</p>
-                <br>
-                <p style="color: #2196f3; font-weight: bold;">"Technology is better when it brings people together."</p>
-            </div>
-        </div>
-    </div>
-
     <div class="ask-me-wrapper">
         <div id="search-box">
             <input type="text" id="userInput" placeholder="Ask me anything...">
@@ -185,8 +159,6 @@
     <footer><p>© 2026 SKILLTECH - All Rights Reserved</p></footer>
 
     <script>
-        function openAboutPopup() { document.getElementById("aboutPopup").style.display = "block"; }
-        function closeAboutPopup() { document.getElementById("aboutPopup").style.display = "none"; }
         function toggleSearchBox() {
             var box = document.getElementById("search-box");
             box.style.display = (box.style.display === "flex") ? "none" : "flex";
