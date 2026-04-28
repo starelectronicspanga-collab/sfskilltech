@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SKILLTECH | Shakeel Ahmed Khan</title>
     <style>
-        /* Design bilkul waisa hi hai jaisa aapko pasand hai */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: #f0f7ff; color: #333; line-height: 1.6; min-height: 100vh; position: relative; }
         nav { background: #fff; padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
@@ -102,10 +101,8 @@
             document.getElementById("search-box").style.display = "none";
             responseDiv.innerHTML = "<i>AI is thinking... 💡</i>";
 
-            let finalSafetyMessage = "Hi! Thank you for your question. Main Shakeel Ahmed Khan ka AI Assistant hoon. Maine aapki baat note kar li hai aur jald hi is par mazeed maloomat share karunga!";
-
             try {
-                // Sahi URL yahan add kar dia gaya hai
+                // Correct Endpoint
                 const url = `https://googleapis.com{API_KEY}`;
 
                 const response = await fetch(url, {
@@ -116,16 +113,16 @@
 
                 const data = await response.json();
                 
-                // Data nikalne ka sahi treeka (Index use kar ke)
+                // Correct Data Extraction with 0 index
                 if (data.candidates && data.candidates[0].content) {
                     let aiText = data.candidates[0].content.parts[0].text;
                     responseDiv.innerHTML = aiText.replace(/\n/g, "<br>");
                 } else {
-                    responseDiv.innerHTML = finalSafetyMessage;
+                    responseDiv.innerHTML = "Hi! Thank you for your question. Main Shakeel Ahmed Khan ka AI Assistant hoon. Maine aapki baat note kar li hai aur jald hi is par mazeed maloomat share karunga!";
                 }
             } catch (error) {
                 console.error("API Error:", error);
-                responseDiv.innerHTML = finalSafetyMessage;
+                responseDiv.innerHTML = "Maazrat! Connection mein masla hai. Dobara koshish karein.";
             }
             document.getElementById("userInput").value = "";
         }
