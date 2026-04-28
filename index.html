@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SKILLTECH | Shakeel Ahmed Khan</title>
     <style>
+        /* Design bilkul waisa hi hai jaisa aapko pasand hai */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: #f0f7ff; color: #333; line-height: 1.6; min-height: 100vh; position: relative; }
         nav { background: #fff; padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
@@ -83,7 +84,8 @@
     <footer> © 2026 SKILLTECH - All Rights Reserved </footer>
 
     <script>
-        const API_KEY = "AIzaSyD8NejfpSVjF9d8p5Jmsj1LHn_TurApB_g"; 
+        // Aapki nayi API Key yahan set kar di hai
+        const API_KEY = "AIzaSyCpB1HmJwf-C_pIOjFnRjw0sHivJjRG1L0"; 
 
         function toggleSearchBox() {
             var box = document.getElementById("search-box");
@@ -102,7 +104,7 @@
             responseDiv.innerHTML = "<i>AI is thinking... 💡</i>";
 
             try {
-                // Correct Endpoint
+                // Correct Endpoint with the new Key
                 const url = `https://googleapis.com{API_KEY}`;
 
                 const response = await fetch(url, {
@@ -113,16 +115,15 @@
 
                 const data = await response.json();
                 
-                // Correct Data Extraction with 0 index
                 if (data.candidates && data.candidates[0].content) {
                     let aiText = data.candidates[0].content.parts[0].text;
                     responseDiv.innerHTML = aiText.replace(/\n/g, "<br>");
                 } else {
-                    responseDiv.innerHTML = "Hi! Thank you for your question. Main Shakeel Ahmed Khan ka AI Assistant hoon. Maine aapki baat note kar li hai aur jald hi is par mazeed maloomat share karunga!";
+                    responseDiv.innerHTML = "Maazrat! AI response nahi de saka. Shayad API key mein masla hai.";
                 }
             } catch (error) {
                 console.error("API Error:", error);
-                responseDiv.innerHTML = "Maazrat! Connection mein masla hai. Dobara koshish karein.";
+                responseDiv.innerHTML = "Connection issue! Please check your internet.";
             }
             document.getElementById("userInput").value = "";
         }
