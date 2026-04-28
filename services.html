@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Our Services | SKILLTECH</title>
     <style>
+        /* General Settings */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #f0f7ff; color: #333; }
+        
+        /* Body Fix for Mobile Stability */
+        body { 
+            background-color: #f0f7ff; 
+            color: #333; 
+            overflow-x: hidden; 
+            width: 100%;
+            position: relative;
+        }
 
-        /* Updated Navigation with Pop-up Buttons */
+        /* Updated Navigation */
         nav {
             background: #fff; padding: 15px 10%; display: flex;
             justify-content: space-between; align-items: center;
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
             position: sticky; top: 0; z-index: 1000;
+            width: 100%;
         }
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .brand-circle {
@@ -46,11 +56,11 @@
         }
 
         /* Services Content */
-        .services-header { padding: 60px 10% 20px; text-align: center; }
+        .services-header { padding: 60px 10% 20px; text-align: center; width: 100%; }
         .services-header h1 { color: #0d47a1; font-size: 36px; margin-bottom: 10px; }
         .services-header p { color: #666; font-size: 18px; }
 
-        .services-list { padding: 40px 10%; display: flex; flex-direction: column; gap: 20px; }
+        .services-list { padding: 40px 10%; display: flex; flex-direction: column; gap: 20px; width: 100%; }
         
         .service-item {
             background: #fff; padding: 30px; border-radius: 15px;
@@ -76,7 +86,25 @@
         }
         .btn-home:hover { background: #0d47a1; transform: translateY(-3px); }
 
-        footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; }
+        footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; width: 100%; }
+
+        /* MOBILE VERSION (Responsive Design Fixes) */
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; flex-direction: column; gap: 15px; text-align: center; }
+            nav ul { gap: 5px; flex-wrap: wrap; justify-content: center; width: 100%; }
+            nav ul li a { padding: 8px 10px; font-size: 11px; }
+
+            .services-header { padding: 40px 5%; }
+            .services-header h1 { font-size: 28px; }
+            .services-header p { font-size: 15px; }
+
+            .services-list { padding: 20px 5%; }
+            .service-item { padding: 20px; }
+            .service-item h3 { font-size: 18px; }
+            .service-item p { font-size: 14px; }
+
+            .btn-home { width: 90%; text-align: center; padding: 12px 20px; }
+        }
     </style>
 </head>
 <body>
