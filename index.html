@@ -157,7 +157,7 @@
     <footer> © 2026 SKILLTECH - All Rights Reserved </footer>
 
     <script>
-        const API_KEY = "AIzaSyB_ZbFGhTHT5X8BG572--pOhjCJh-bzkp0"; 
+        const API_KEY = "AIzaSyD8NejfpSVjF9d8p5Jmsj1LHn_TurApB_g"; 
 
         function toggleSearchBox() {
             var box = document.getElementById("search-box");
@@ -189,13 +189,12 @@
                 if (data.candidates && data.candidates[0].content) {
                     let aiText = data.candidates[0].content.parts[0].text;
                     responseDiv.innerHTML = aiText.replace(/\n/g, "<br>");
-                } else if (data.error) {
-                    responseDiv.innerHTML = "Error: " + data.error.message;
                 } else {
                     responseDiv.innerHTML = "AI could not process this. Try another question.";
                 }
             } catch (error) {
-                responseDiv.innerHTML = "Could not connect to AI. Please check your internet or API key.";
+                console.error(error);
+                responseDiv.innerHTML = "Sorry, Shakeel's AI is busy. Check your internet connection.";
             }
             document.getElementById("userInput").value = "";
         }
