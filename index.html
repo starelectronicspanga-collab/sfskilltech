@@ -70,7 +70,6 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
-            <!-- Naya Button Jo Popup Kholega -->
             <li><a onclick="openAboutPopup()">About Me</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -88,22 +87,24 @@
         </div>
     </section>
 
-    <!-- Naya About Me Popup Window -->
+    <!-- Professional About Me Popup -->
     <div id="aboutPopup" class="ans-modal">
         <div class="ans-modal-content">
             <span class="close-x" onclick="closeAboutPopup()">&times;</span>
             <h2 style="color: #0d47a1; margin-bottom: 15px;">About Shakeel Ahmed Khan</h2>
             <div style="font-size: 16px; color: #444; line-height: 1.6;">
-                <p>Main <b>SF SKILLTECH</b> ka founder hoon aur mera maqsad businesses ko digital duniya mein kamyab banana hai. 🚀</p>
+                <p>I am the founder of <b>SF SKILLTECH</b>, and my mission is to empower businesses to succeed in the digital world. 🚀</p>
                 <br>
-                <p>Main modern technology aur AI ko istemal karte huay <b>SEO</b>, <b>Graphic Design</b>, aur <b>Web Solutions</b> faraham karta hoon. Meri koshish hoti hai ke har project mein quality aur innovation nazar aaye taake aapka brand sab se alag dikhe.</p>
+                <p>For the past <b>2 years</b>, I have been working with <b>Star International</b>, specializing in these core digital domains. This professional journey has sharpened my expertise in delivering high-quality results.</p>
+                <br>
+                <p>Using modern technology and AI, I provide professional <b>SEO</b>, <b>Graphic Design</b>, and <b>Web Solutions</b>. My goal is to ensure every project reflects quality and innovation, helping your brand stand out from the competition.</p>
                 <br>
                 <p style="color: #2196f3; font-weight: bold;">"Technology is better when it brings people together."</p>
             </div>
         </div>
     </div>
 
-    <!-- Aapka Purana Ask Me Popup -->
+    <!-- Ask Me Popup -->
     <div id="popupWindow" class="ans-modal">
         <div class="ans-modal-content">
             <span class="close-x" onclick="closePopup()">&times;</span>
@@ -124,20 +125,16 @@
     <footer> © 2026 SKILLTECH - All Rights Reserved </footer>
 
     <script>
-        // About Me Popup Functions
         function openAboutPopup() {
             document.getElementById("aboutPopup").style.display = "block";
         }
         function closeAboutPopup() {
             document.getElementById("aboutPopup").style.display = "none";
         }
-
-        // Baki Functions
         function toggleSearchBox() {
             var box = document.getElementById("search-box");
             box.style.display = (box.style.display === "flex") ? "none" : "flex";
         }
-
         function askGeminiAI() {
             const input = document.getElementById("userInput").value;
             const responseDiv = document.getElementById("responseText");
@@ -151,12 +148,9 @@
             }, 1000);
             document.getElementById("userInput").value = "";
         }
-
         function closePopup() {
             document.getElementById("popupWindow").style.display = "none";
         }
-
-        // Bahar click karne se popup band ho jaye
         window.onclick = function(event) {
             let aboutModal = document.getElementById("aboutPopup");
             let askModal = document.getElementById("popupWindow");
