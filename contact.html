@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Contact Us | SKILLTECH</title>
     <style>
+        /* General Settings */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #f0f7ff; color: #333; }
+        
+        /* Body Fix for Mobile Stability */
+        body { 
+            background-color: #f0f7ff; 
+            color: #333; 
+            overflow-x: hidden; 
+            width: 100%;
+            position: relative;
+        }
 
-        /* Updated Navigation with Pop-up Buttons (Same as Home) */
+        /* Updated Navigation */
         nav {
             background: #fff; padding: 15px 10%; display: flex;
             justify-content: space-between; align-items: center;
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
             position: sticky; top: 0; z-index: 1000;
+            width: 100%;
         }
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .brand-circle {
@@ -46,7 +56,7 @@
         }
 
         /* Contact Section */
-        .contact-container { padding: 80px 10%; text-align: center; }
+        .contact-container { padding: 80px 10%; text-align: center; width: 100%; }
         .contact-card {
             background: #fff; max-width: 550px; margin: 0 auto;
             padding: 50px 30px; border-radius: 20px;
@@ -70,7 +80,21 @@
         }
         .btn-home:hover { color: #0d47a1; transform: scale(1.05); }
 
-        footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; margin-top: 50px; }
+        footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; margin-top: 50px; width: 100%; }
+
+        /* MOBILE VERSION (Responsive Design Fixes) */
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; flex-direction: column; gap: 15px; text-align: center; }
+            nav ul { gap: 5px; flex-wrap: wrap; justify-content: center; width: 100%; }
+            nav ul li a { padding: 8px 10px; font-size: 11px; }
+
+            .contact-container { padding: 40px 5%; }
+            .contact-card { padding: 30px 20px; width: 100%; }
+            .contact-card h1 { font-size: 24px; }
+            .contact-card p { font-size: 14px; }
+            
+            .contact-btn { padding: 12px 20px; font-size: 14px; }
+        }
     </style>
 </head>
 <body>
@@ -93,8 +117,9 @@
             <h1>Get In Touch</h1>
             <p>Ready to start your next digital project? Contact **SKILLTECH** today for expert SEO, Design, and AI solutions.</p>
             
+            <!-- Apna WhatsApp Number yahan update kar dein -->
             <a href="https://wa.me" class="contact-btn">Message on WhatsApp</a>
-            <p style="margin-top: 25px; color: #777;">Email: contact@skilltech.com</p>
+            <p style="margin-top: 25px; color: #777; font-size: 14px;">Email: contact@skilltech.com</p>
         </div>
         <a href="index.html" class="btn-home">← Back to Home Page</a>
     </div>
