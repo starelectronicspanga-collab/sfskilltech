@@ -20,10 +20,18 @@
     
     nav { background: #fff; padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
     .logo-area { display: flex; align-items: center; gap: 12px; }
-    .brand-circle { width: 40px; height: 40px; background-color: #0d47a1; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; font-size: 18px; border: 2px solid #bbdefb; }
+    
+    /* TOP SF LOGO - Heartbeat Animation Added */
+    .brand-circle { 
+        width: 40px; height: 40px; background-color: #0d47a1; border-radius: 50%; 
+        display: flex; justify-content: center; align-items: center; color: white; 
+        font-weight: bold; font-size: 18px; border: 2px solid #bbdefb;
+        animation: heartbeat 2s ease-in-out infinite; /* Dharakne wala effect */
+    }
+    
     .logo-text { font-size: 24px; font-weight: bold; color: #0d47a1; letter-spacing: 2px; }
     
-    /* Navigation Buttons - Hover Effect Wapis Add Kiya */
+    /* Navigation Buttons */
     nav ul { display: flex; list-style: none; gap: 15px; }
     nav ul li a { 
         text-decoration: none; 
@@ -32,17 +40,17 @@
         padding: 10px 22px; 
         border-radius: 12px; 
         background: #ffffff; 
-        transition: all 0.3s ease; /* Transition smooth rakhi hai */
+        transition: all 0.3s ease;
         border: 2px solid #e3f2fd; 
         font-size: 14px; 
         cursor: pointer;
-        display: inline-block; /* Ubharne ke liye zaroori hai */
+        display: inline-block;
     }
     
     nav ul li a:hover { 
         background: #2196f3; 
         color: white; 
-        transform: translateY(-5px); /* Ye button ko oopar ubhare ga */
+        transform: translateY(-5px);
         box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
     }
 
@@ -55,7 +63,22 @@
     .btn { background: #2196f3; color: white; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
     .btn:hover { background: #0d47a1; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); }
 
-    .footer-logo { position: fixed; bottom: 25px; right: 25px; background-color: #0d47a1; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(13, 71, 161, 0.4); color: white; font-weight: bold; font-size: 18px; z-index: 999; }
+    /* BOTTOM SF LOGO - Heartbeat Animation Added */
+    .footer-logo { 
+        position: fixed; bottom: 25px; right: 25px; background-color: #0d47a1; 
+        width: 65px; height: 65px; border-radius: 50%; display: flex; 
+        justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(13, 71, 161, 0.4); 
+        color: white; font-weight: bold; font-size: 18px; z-index: 999; 
+        animation: heartbeat 2s ease-in-out infinite; /* Dharakne wala effect */
+    }
+
+    /* HEARTBEAT ANIMATION RULE */
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); } /* Thora sa bara hoga */
+        100% { transform: scale(1); }
+    }
+
     .ask-me-wrapper { position: fixed; bottom: 25px; left: 25px; display: flex; flex-direction: row-reverse; align-items: center; gap: 12px; z-index: 1000; }
     #search-box { display: none; background: white; border: 2.5px solid #2196f3; border-radius: 40px; padding: 6px 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); align-items: center; }
     #search-box input { border: none; outline: none; padding: 8px; width: 160px; font-size: 14px; }
@@ -140,40 +163,18 @@
     </div>
 
     <div class="footer-logo">SF</div>
-    <footer> © 2026 SKILLTECH - All Rights Reserved </footer>
+
+    <footer>
+        <p>© 2026 SKILLTECH - All Rights Reserved</p>
+    </footer>
 
     <script>
-        function openAboutPopup() {
-            document.getElementById("aboutPopup").style.display = "block";
-        }
-        function closeAboutPopup() {
-            document.getElementById("aboutPopup").style.display = "none";
-        }
+        function openAboutPopup() { document.getElementById("aboutPopup").style.display = "block"; }
+        function closeAboutPopup() { document.getElementById("aboutPopup").style.display = "none"; }
+        function closePopup() { document.getElementById("popupWindow").style.display = "none"; }
         function toggleSearchBox() {
             var box = document.getElementById("search-box");
             box.style.display = (box.style.display === "flex") ? "none" : "flex";
-        }
-        function askGeminiAI() {
-            const input = document.getElementById("userInput").value;
-            const responseDiv = document.getElementById("responseText");
-            const popup = document.getElementById("popupWindow");
-            if (!input.trim()) return;
-            popup.style.display = "block";
-            document.getElementById("search-box").style.display = "none";
-            responseDiv.innerHTML = "<i>AI is thinking... 💡</i>";
-            setTimeout(() => {
-                responseDiv.innerHTML = "Hi! Main Shakeel Ahmed Khan ka AI Assistant hoon. Aapka sawal mujhe mil gaya hai, main jald hi aapko is par response karunga! Shukriya.";
-            }, 1000);
-            document.getElementById("userInput").value = "";
-        }
-        function closePopup() {
-            document.getElementById("popupWindow").style.display = "none";
-        }
-        window.onclick = function(event) {
-            let aboutModal = document.getElementById("aboutPopup");
-            let askModal = document.getElementById("popupWindow");
-            if (event.target == aboutModal) aboutModal.style.display = "none";
-            if (event.target == askModal) askModal.style.display = "none";
         }
     </script>
 </body>
