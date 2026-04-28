@@ -46,6 +46,7 @@
             border: 2px solid #e3f2fd;
             font-size: 14px;
             display: inline-block;
+            cursor: pointer;
         }
         nav ul li a:hover { 
             background: #2196f3; 
@@ -80,20 +81,19 @@
         }
         .btn-home:hover { color: #0d47a1; transform: scale(1.05); }
 
+        /* Modals Design */
+        .ans-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(5px); }
+        .ans-modal-content { background: white; margin: 10% auto; padding: 35px; border-radius: 20px; width: 90%; max-width: 500px; text-align: left; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border-top: 10px solid #2196f3; }
+        .close-x { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 26px; color: #bbb; }
+
         footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; margin-top: 50px; width: 100%; }
 
-        /* MOBILE VERSION (Responsive Design Fixes) */
+        /* MOBILE VERSION */
         @media (max-width: 768px) {
             nav { padding: 15px 5%; flex-direction: column; gap: 15px; text-align: center; }
             nav ul { gap: 5px; flex-wrap: wrap; justify-content: center; width: 100%; }
             nav ul li a { padding: 8px 10px; font-size: 11px; }
-
-            .contact-container { padding: 40px 5%; }
-            .contact-card { padding: 30px 20px; width: 100%; }
-            .contact-card h1 { font-size: 24px; }
-            .contact-card p { font-size: 14px; }
-            
-            .contact-btn { padding: 12px 20px; font-size: 14px; }
+            .ans-modal-content { margin: 30% auto; padding: 25px; }
         }
     </style>
 </head>
@@ -108,6 +108,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a onclick="openAboutPopup()">About Me</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
@@ -124,9 +125,40 @@
         <a href="index.html" class="btn-home">← Back to Home Page</a>
     </div>
 
+    <!-- About Me Popup Window -->
+    <div id="aboutPopup" class="ans-modal">
+        <div class="ans-modal-content">
+            <span class="close-x" onclick="closeAboutPopup()">&times;</span>
+            <h2 style="color: #0d47a1; margin-bottom: 15px;">About Shakeel Ahmed Khan</h2>
+            <div style="font-size: 16px; color: #444; line-height: 1.6;">
+                <p>I am the founder of <b>SF SKILLTECH</b>, and my mission is to empower businesses to succeed in the digital world. 🚀</p>
+                <br>
+                <p>For the past <b>2 years</b>, I have been working with <b>Star International</b>, specializing in these core digital domains. This professional journey has sharpened my expertise in delivering high-quality results.</p>
+                <br>
+                <p>Using modern technology and AI, I provide professional <b>SEO</b>, <b>Graphic Design</b>, and <b>Web Solutions</b>. My goal is to ensure every project reflects quality and innovation.</p>
+                <br>
+                <p style="color: #2196f3; font-weight: bold;">"Technology is better when it brings people together."</p>
+            </div>
+        </div>
+    </div>
+
     <footer>
         © 2026 SKILLTECH - All Rights Reserved
     </footer>
 
+    <script>
+        function openAboutPopup() {
+            document.getElementById("aboutPopup").style.display = "block";
+        }
+        function closeAboutPopup() {
+            document.getElementById("aboutPopup").style.display = "none";
+        }
+        window.onclick = function(event) {
+            let modal = document.getElementById("aboutPopup");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
