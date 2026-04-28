@@ -21,7 +21,7 @@
         position: relative;
     }
 
-    /* --- BARI BIJLI (0.75s) --- */
+    /* --- SUPER FAST BIJLI (0.75s) --- */
     .lightning-bolt {
         position: fixed; width: 6px; height: 180px; background: #ffffff;
         box-shadow: 0 0 30px #2196f3, 0 0 60px #0d47a1;
@@ -45,7 +45,7 @@
     .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 10%; }
     .big-name { font-size: 52px; font-weight: 900; background: linear-gradient(to right, #0d47a1, #2196f3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; margin-bottom: 10px; }
     
-    /* ASK ME BUTTON Animation */
+    /* ASK ME BUTTON */
     .ask-btn { 
         background-color: #2196f3; width: 60px; height: 60px; border-radius: 50%; 
         display: flex; justify-content: center; align-items: center; 
@@ -55,10 +55,10 @@
     }
     @keyframes boomAppear { 0% { opacity: 0; transform: scale(0); } 100% { opacity: 1; transform: scale(1); } }
 
-    /* POPUP WINDOW DESIGN (Aapki Image ke mutabiq) */
+    /* POPUP WINDOW DESIGN */
     .ans-modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
     .ans-modal-content { 
-        background: white; margin: 15% auto; padding: 30px; border-radius: 20px; 
+        background: white; margin: 12% auto; padding: 30px; border-radius: 20px; 
         width: 90%; max-width: 500px; text-align: left; position: relative; 
         box-shadow: 0 20px 50px rgba(0,0,0,0.3); border-top: 8px solid #2196f3; 
     }
@@ -100,17 +100,23 @@
     <div id="aiPopup" class="ans-modal">
         <div class="ans-modal-content">
             <span class="close-x" onclick="closePopup()">&times;</span>
-            <h2 id="aiTitle" style="color: #2196f3; margin-bottom: 15px;">Shakeel's AI Assistant</h2>
+            <h2 style="color: #2196f3; margin-bottom: 15px;">Shakeel's AI Assistant</h2>
             <div id="responseText" style="font-size: 16px; color: #444; line-height: 1.6;">Thinking...</div>
         </div>
     </div>
 
-    <!-- About Me Popup -->
+    <!-- ABOUT ME POPUP (Updated with 2 Years Experience) -->
     <div id="aboutPopup" class="ans-modal">
         <div class="ans-modal-content">
             <span class="close-x" onclick="closePopup()">&times;</span>
             <h2 style="color: #0d47a1; margin-bottom: 15px;">About Shakeel Ahmed Khan</h2>
-            <p>I am the founder of <b>SF SKILLTECH</b>, specializing in <b>SEO</b>, <b>Graphic Design</b>, and <b>Web Solutions</b>.</p>
+            <div style="font-size: 15px; color: #444; line-height: 1.7;">
+                <p>I am the founder of <b>SF SKILLTECH</b>, specializing in <b>SEO</b>, <b>Graphic Design</b>, and <b>Web Solutions</b>.</p>
+                <br>
+                <p>For the past <b>2 years</b>, I have been working with <b>Star International Company</b>, gaining extensive professional experience in these core digital domains.</p>
+                <br>
+                <p style="color: #2196f3; font-weight: bold;">"Innovation drives digital success."</p>
+            </div>
         </div>
     </div>
 
@@ -141,14 +147,11 @@
         function askAI() {
             var input = document.getElementById("userInput").value;
             if(input.trim() === "") return alert("Please type something!");
-            
             document.getElementById("aiPopup").style.display = "block";
             document.getElementById("responseText").innerText = "Thinking...";
-            
             setTimeout(function() {
                 document.getElementById("responseText").innerText = "Hello! Main Shakeel Ahmed Khan ka AI Assistant hoon. Main aapka sawal dekh raha hoon aur jald hi aapko jawab doon ga! Shukria.";
             }, 1500);
-            
             document.getElementById("userInput").value = "";
         }
     </script>
