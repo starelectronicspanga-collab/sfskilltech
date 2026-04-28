@@ -76,15 +76,18 @@
     .footer-logo { position: fixed; bottom: 25px; right: 25px; background-color: #0d47a1; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; animation: heartbeat 2s infinite; z-index: 999; }
     footer { text-align: center; padding: 25px; color: #999; }
 
-   @media (max-width: 768px) {
+  @media (max-width: 768px) {
         nav { padding: 10px 5%; flex-direction: column; gap: 10px; }
         nav ul { display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; width: 100%; padding: 0; }
         nav ul li a { 
             padding: 6px 8px; 
             font-size: 10px; 
-            white-space: nowrap; /* Is se 'About Me' kabhi nahi tootega */
+            white-space: nowrap; /* Is se 'About Me' ek hi line mein rahega */
             display: inline-block;
         }
+        .hero-content h1 { font-size: 28px !important; }
+        .hero-content h2 { font-size: 18px !important; }
+    }
         .hero-content h1 { font-size: 28px !important; }
         .hero-content h2 { font-size: 18px !important; }
     }
