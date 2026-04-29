@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI COMMAND CENTER | SKILLTECH</title>
+    <style>
+        @import url('https://googleapis.com');
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: linear-gradient(135deg, #f4f8fb 0%, #e0eefc 100%); color: #1a4a8d; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+
+        /* Heartbeat Logo */
+        @keyframes heartbeat { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        .ai-logo { width: 80px; height: 80px; background: #0d47a1; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-family: 'Orbitron', sans-serif; font-size: 24px; color: white; border: 3px solid #fff; animation: heartbeat 2s infinite ease-in-out; margin-top: 50px; box-shadow: 0 10px 20px rgba(13, 71, 161, 0.2); }
+
+        /* Frozen Glass Panel */
+        .glass-panel { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 30px; padding: 40px; width: 90%; max-width: 800px; margin-top: 30px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.05); }
+        h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(24px, 5vw, 40px); color: #0d47a1; margin-bottom: 20px; letter-spacing: 2px; }
+
+        /* Scanner */
+        .scanner-box { position: relative; width: 100%; height: 6px; background: rgba(33, 150, 243, 0.1); margin: 30px 0; border-radius: 10px; overflow: hidden; }
+        .scanner-line { position: absolute; width: 150px; height: 100%; background: linear-gradient(to right, transparent, #2196f3, transparent); animation: scan 3s infinite linear; }
+        @keyframes scan { 0% { left: -150px; } 100% { left: 100%; } }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .stat-card { background: white; padding: 25px; border-radius: 20px; border: 1px solid #e3f2fd; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .stat-card h4 { font-size: 32px; color: #2196f3; margin-bottom: 5px; font-family: 'Orbitron', sans-serif; }
+        .stat-card p { font-size: 13px; text-transform: uppercase; color: #666; font-weight: bold; }
+
+        .btn-back { margin-top: 40px; padding: 15px 40px; background: #0d47a1; border: none; color: white; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 20px rgba(13, 71, 161, 0.2); text-decoration: none; display: inline-block; }
+        .btn-back:hover { background: #2196f3; transform: translateY(-5px); }
+
+        footer { margin-top: auto; padding: 30px; font-size: 12px; color: #94a3b8; }
+    </style>
+</head>
+<body>
+    <div class="ai-logo">SF</div>
+    <div class="glass-panel">
+        <h1>AI COMMAND CENTER</h1>
+        <p style="color: #666; font-weight: 500;">Processing Digital Strategies for Shakeel Ahmed Khan</p>
+        <div class="scanner-box"><div class="scanner-line"></div></div>
+        <div class="stats-grid">
+            <div class="stat-card"><h4>99%</h4><p>SEO Efficiency</p></div>
+            <div class="stat-card"><h4>AI-01</h4><p>System Status</p></div>
+            <div class="stat-card"><h4>Live</h4><p>Web Control</p></div>
+        </div>
+        <p style="margin-top: 30px; font-style: italic; font-size: 14px; color: #2196f3; font-weight: 500;">"Innovation is the core of Skilltech..."</p>
+    </div>
+    <a href="index.html" class="btn-back">← RETURN TO BASE</a>
+    <footer>© 2026 SKILLTECH • AI DIVISION • DEVELOPED BY SHAKEEL AHMED KHAN</footer>
+</body>
+</html>
