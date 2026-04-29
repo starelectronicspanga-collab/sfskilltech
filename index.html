@@ -8,7 +8,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: #f4f8fb; color: #1a4a8d; line-height: 1.6; min-height: 100vh; overflow-x: hidden; display: flex; flex-direction: column; }
 
-        /* Slow Heartbeat Animation */
+        /* Slow Heartbeat */
         @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
         .heartbeat { animation: heartbeat 2s infinite ease-in-out; }
 
@@ -25,19 +25,20 @@
             animation: strikeDown 0.75s ease-in forwards; animation-delay: 0.5s;
         }
 
-        /* Navbar */
+        /* Navbar - Optimized for Mobile */
         nav { 
-            background: white; padding: 15px 5%; display: flex; justify-content: space-between; 
+            background: white; padding: 10px 5%; display: flex; justify-content: space-between; 
             align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
             position: fixed; top: 0; width: 100%; z-index: 5000; 
         }
-        .logo-area { display: flex; align-items: center; gap: 8px; cursor: pointer; }
-        .circle-sf { background: #0d47a1; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 16px; border: 2px solid #bbdefb; }
+        .logo-area { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+        .circle-sf { background: #0d47a1; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 14px; border: 2px solid #bbdefb; }
+        .logo-text { font-weight: bold; font-size: 15px; color: #1a4a8d; letter-spacing: 1px; }
         
-        nav ul { display: flex; list-style: none; gap: 5px; }
+        nav ul { display: flex; list-style: none; gap: 4px; align-items: center; }
         nav ul li a { 
-            text-decoration: none; color: #1565c0; font-weight: 600; padding: 8px 12px; 
-            border: 1px solid #e3f2fd; border-radius: 6px; font-size: 13px; 
+            text-decoration: none; color: #1565c0; font-weight: 600; padding: 6px 8px; 
+            border: 1px solid #e3f2fd; border-radius: 6px; font-size: 11px; 
             cursor: pointer; transition: all 0.3s ease; background: white; 
             white-space: nowrap; display: inline-block;
         }
@@ -45,48 +46,48 @@
         /* Hover Effect: Blue + Ubharna */
         nav ul li a:hover, .btn-blue:hover, .ask-submit:hover { 
             background: #2196f3 !important; color: white !important;
-            transform: translateY(-6px) scale(1.06) !important;
+            transform: translateY(-5px) scale(1.05) !important;
             box-shadow: 0 10px 20px rgba(33, 150, 243, 0.4); border-color: #0d47a1;
         }
 
-        /* Main Content */
-        .main-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 60px; }
-        .hero h1 { font-size: clamp(30px, 8vw, 60px); color: #1565c0; text-transform: uppercase; }
-        .hero h2 { font-size: clamp(18px, 5vw, 32px); color: #1565c0; font-weight: 600; margin-top: 10px; }
-        .founder-text { font-size: 14px; color: #666; font-weight: bold; text-transform: uppercase; margin-top: 15px; }
-        .hero p { font-size: 15px; color: #777; max-width: 700px; margin: 15px auto; padding: 0 5%; }
-        .btn-blue { background: #2196f3; color: white; padding: 15px 45px; border-radius: 5px; text-decoration: none; font-weight: bold; cursor: pointer; border: none; font-size: 16px; transition: 0.3s; margin-top: 10px; display: inline-block; }
+        /* Hero */
+        .main-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 80px; }
+        .hero h1 { font-size: clamp(28px, 8vw, 60px); color: #1565c0; text-transform: uppercase; }
+        .hero h2 { font-size: clamp(18px, 5vw, 32px); color: #1565c0; font-weight: 600; margin-top: 5px; }
+        .founder-text { font-size: 13px; color: #666; font-weight: bold; text-transform: uppercase; margin-top: 10px; }
+        .hero p { font-size: 14px; color: #777; max-width: 700px; margin: 15px auto; padding: 0 5%; }
+        .btn-blue { background: #2196f3; color: white; padding: 12px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; cursor: pointer; border: none; font-size: 15px; transition: 0.3s; margin-top: 10px; display: inline-block; }
 
         /* Footer */
         footer { padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; background: white; border-top: 1px solid #eee; }
-        .copyright-center { flex: 1; text-align: center; color: #999; font-size: 13px; }
-        .footer-logo-right { background: #0d47a1; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 18px; border: 2px solid #bbdefb; }
+        .copyright-center { flex: 1; text-align: center; color: #999; font-size: 11px; }
+        .footer-logo-right { background: #0d47a1; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 16px; border: 2px solid #bbdefb; }
 
         /* Ask Me UI */
-        .ask-wrap { position: fixed; bottom: 15px; left: 20px; display: flex; align-items: center; gap: 10px; z-index: 6000; }
+        .ask-wrap { position: fixed; bottom: 15px; left: 15px; display: flex; align-items: center; gap: 8px; z-index: 6000; }
         @keyframes boomAppear { 0% { opacity: 0; transform: scale(0); } 100% { opacity: 1; transform: scale(1); } }
         .ask-me-btn { 
-            background: #2196f3; color: white; width: 60px; height: 60px; border-radius: 50%; border: none; 
-            font-weight: bold; font-size: 12px; cursor: pointer; opacity: 0;
+            background: #2196f3; color: white; width: 55px; height: 55px; border-radius: 50%; border: none; 
+            font-weight: bold; font-size: 11px; cursor: pointer; opacity: 0;
             animation: boomAppear 0.5s forwards; animation-delay: 1.2s; 
         }
-        #searchBar { display: none; background: white; border: 2.5px solid #2196f3; border-radius: 40px; padding: 4px 5px 4px 15px; align-items: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        #searchBar input { border: none; outline: none; width: 130px; padding: 6px; font-size: 13px; }
-        .ask-submit { background: #2196f3; color: white; border: none; border-radius: 30px; padding: 6px 15px; cursor: pointer; font-weight: bold; }
+        #searchBar { display: none; background: white; border: 2.5px solid #2196f3; border-radius: 40px; padding: 3px 3px 3px 12px; align-items: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        #searchBar input { border: none; outline: none; width: 120px; padding: 6px; font-size: 12px; }
+        .ask-submit { background: #2196f3; color: white; border: none; border-radius: 30px; padding: 6px 12px; cursor: pointer; font-weight: bold; font-size: 12px; }
 
-        /* Modal Overlays (Popups) */
+        /* Modals */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); z-index: 7000; justify-content: center; align-items: center; }
-        .modal-box { background: white; padding: 30px; border-radius: 20px; width: 90%; max-width: 550px; text-align: left; border-top: 8px solid #2196f3; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        .modal-box h3 { color: #2196f3; font-size: 22px; margin-bottom: 12px; font-weight: 800; }
-        .close-btn { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 24px; color: #bbb; }
+        .modal-box { background: white; padding: 25px; border-radius: 20px; width: 90%; max-width: 500px; text-align: left; border-top: 8px solid #2196f3; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .modal-box h3 { color: #2196f3; font-size: 20px; margin-bottom: 10px; font-weight: 800; }
+        .modal-box p { font-size: 15px; color: #444; line-height: 1.6; }
+        .close-btn { position: absolute; right: 15px; top: 10px; cursor: pointer; font-size: 22px; color: #bbb; }
 
-        @media (max-width: 600px) {
-            nav { flex-direction: row; justify-content: space-between; padding: 10px 3%; }
-            .logo-area span { display: none; } nav ul { gap: 3px; }
-            nav ul li a { padding: 6px 8px; font-size: 11px; }
-            footer { flex-direction: column; gap: 10px; padding: 15px 5%; }
-            .copyright-center { order: 2; }
-            .footer-logo-right { order: 1; }
+        @media (min-width: 768px) {
+            .circle-sf { width: 45px; height: 45px; font-size: 18px; }
+            .logo-text { font-size: 20px; }
+            nav ul { gap: 10px; }
+            nav ul li a { padding: 8px 15px; font-size: 14px; }
+            .copyright-center { font-size: 13px; }
         }
     </style>
 </head>
@@ -95,13 +96,15 @@
     <div class="lightning"></div>
 
     <nav>
-        <div class="logo-area" onclick="location.reload()"><div class="circle-sf heartbeat">SF</div><span style="font-weight: bold; font-size: 18px; margin-left: 5px;">SKILLTECH</span></div>
+        <div class="logo-area" onclick="location.reload()">
+            <div class="circle-sf heartbeat">SF</div>
+            <span class="logo-text">SKILLTECH</span>
+        </div>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
-            <!-- FIX: Added href="javascript:void(0)" to prevent "File not found" -->
-            <li><a href="javascript:void(0)" onclick="openAbout()">About Me</a></li>
+            <li><a href="javascript:void(0)" onclick="openAbout()">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
@@ -131,22 +134,9 @@
     </footer>
 
     <!-- Assistant Modal -->
-    <div id="aiModal" class="modal-overlay">
-        <div class="modal-box">
-            <span class="close-btn" onclick="closeAI()">&times;</span>
-            <h3>Shakeel's AI Assistant</h3>
-            <p id="aiText">Thinking...</p>
-        </div>
-    </div>
-
-    <!-- About Me Modal -->
-    <div id="aboutModal" class="modal-overlay">
-        <div class="modal-box">
-            <span class="close-btn" onclick="closeAbout()">&times;</span>
-            <h3 style="color: #0d47a1;">About Shakeel Ahmed Khan</h3>
-            <p>I am the founder of <b>SF SKILLTECH</b>, and my mission is to empower businesses to succeed in the digital world. For the past 2 years, I have been working with Star International, specializing in core digital domains.</p>
-        </div>
-    </div>
+    <div id="aiModal" class="modal-overlay"><div class="modal-box"><span class="close-btn" onclick="closeAI()">&times;</span><h3>Shakeel's AI Assistant</h3><p id="aiText">Thinking...</p></div></div>
+    <!-- About Modal -->
+    <div id="aboutModal" class="modal-overlay"><div class="modal-box"><span class="close-btn" onclick="closeAbout()">&times;</span><h3 style="color: #0d47a1;">About Shakeel Ahmed Khan</h3><p>I am the founder of <b>SF SKILLTECH</b>, providing top-tier SEO, Design, and AI solutions with 2 years of experience at Star International.</p></div></div>
 
     <script>
         function openAbout() { document.getElementById('aboutModal').style.display = 'flex'; }
@@ -160,20 +150,11 @@
             if(input.trim() !== "") { 
                 document.getElementById('aiModal').style.display = 'flex';
                 document.getElementById('aiText').innerText = "Thinking...";
-                setTimeout(function() { 
-                    document.getElementById('aiText').innerText = "Hi, I am Shakeel Ahmed Khan's assistant. I have received your message and you will be answered shortly. Thank you!"; 
-                }, 1500);
+                setTimeout(function() { document.getElementById('aiText').innerText = "Hi, I am Shakeel Ahmed Khan's assistant. I have received your message and you will be answered shortly. Thank you!"; }, 1500);
             } 
         }
         function closeAI() { document.getElementById('aiModal').style.display = 'none'; document.getElementById('userInput').value = ""; }
-        
-        // Window click to close
-        window.onclick = function(event) { 
-            if (event.target.className == 'modal-overlay') { 
-                closeAI(); 
-                closeAbout(); 
-            } 
-        }
+        window.onclick = function(event) { if (event.target.className == 'modal-overlay') { closeAI(); closeAbout(); } }
     </script>
 </body>
 </html>
