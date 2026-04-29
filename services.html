@@ -3,159 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Contact Us | SKILLTECH</title>
+    <title>Our Services | SKILLTECH</title>
     <style>
-        /* General Settings */
+        /* Global Design */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        
-        body { 
-            background-color: #f0f7ff; 
-            color: #333; 
-            overflow-x: hidden; 
-            width: 100%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+        body { background-color: #f0f7ff; color: #333; line-height: 1.6; min-height: 100vh; position: relative; overflow-x: hidden; width: 100%; display: flex; flex-direction: column; }
 
-        /* Slow Heartbeat Animation */
-        @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-        .heartbeat { animation: heartbeat 2s infinite ease-in-out; }
-
-        /* --- AUTO LIGHTNING BOLT --- */
-        @keyframes strikeDown { 
-            0% { top: -350px; opacity: 0; height: 180px; } 
-            50% { opacity: 1; height: 350px; } 
-            100% { top: calc(100% - 90px); left: 28px; opacity: 0; height: 10px; } 
-        }
-        .lightning {
-            position: fixed; width: 6px; height: 180px; background: white;
-            box-shadow: 0 0 30px #2196f3, 0 0 60px #0d47a1;
-            left: 11%; z-index: 9999; border-radius: 10px; opacity: 0;
-            animation: strikeDown 0.75s ease-in forwards; animation-delay: 0.5s;
-        }
-
-        /* Navigation */
-        nav {
-            background: #fff; padding: 15px 10%; display: flex;
-            justify-content: space-between; align-items: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            position: sticky; top: 0; z-index: 1000;
-            width: 100%;
-        }
+        nav { background: #fff; padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .logo-area { display: flex; align-items: center; gap: 12px; cursor: pointer; }
-        .brand-circle {
-            width: 45px; height: 45px; background-color: #0d47a1;
-            border-radius: 50%; display: flex; justify-content: center;
-            align-items: center; color: white; font-weight: bold; font-size: 18px;
-            border: 2px solid #bbdefb;
-        }
-        .logo-text { font-size: 24px; font-weight: bold; color: #0d47a1; letter-spacing: 2px; }
         
-        nav ul { display: flex; list-style: none; gap: 10px; }
-        nav ul li a { 
-            text-decoration: none; color: #1565c0; font-weight: 600; 
-            padding: 10px 20px; border-radius: 10px; background: #ffffff;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid #e3f2fd; font-size: 14px; display: inline-block; cursor: pointer;
+        /* TOP SF LOGO - Bada Size aur Heartbeat */
+        .brand-circle { 
+            width: 50px; height: 50px; background-color: #0d47a1; border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; color: white; 
+            font-weight: bold; font-size: 22px; border: 2px solid #bbdefb;
+            animation: heartbeat 2s ease-in-out infinite;
         }
 
-        /* Hover Effect: Blue + Ubharna */
-        nav ul li a:hover, .contact-btn:hover, .ask-submit:hover { 
-            background: #2196f3 !important; color: white !important;
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.3); border-color: #0d47a1;
+        /* --- SUPER FAST BIJLI (0.75s) --- */
+        .lightning-bolt {
+            position: fixed; width: 6px; height: 180px; background: #ffffff;
+            box-shadow: 0 0 30px #2196f3, 0 0 60px #0d47a1;
+            top: -350px; left: 11%; opacity: 0; z-index: 9999; border-radius: 10px;
+            animation: strikeDownPerfect 0.75s ease-in forwards;
+            animation-delay: 0.75s; 
         }
 
-        /* Contact Section */
-        .contact-container { padding: 80px 10%; text-align: center; width: 100%; flex: 1; }
-        .contact-card {
-            background: #fff; max-width: 550px; margin: 0 auto;
-            padding: 50px 30px; border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.1);
-            border-top: 8px solid #2196f3;
+        @keyframes strikeDownPerfect {
+            0% { top: -350px; opacity: 0; height: 180px; }
+            50% { opacity: 1; height: 350px; }
+            100% { top: calc(100% - 90px); left: 28px; opacity: 0; height: 10px; }
         }
-        .contact-card h1 { color: #0d47a1; margin-bottom: 20px; font-size: 32px; }
         
-        .contact-btn {
-            background: #2196f3; color: white; padding: 15px 30px;
-            text-decoration: none; border-radius: 8px; font-weight: bold;
-            display: block; margin-top: 20px; transition: 0.3s;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2); border: none; cursor: pointer;
+        @keyframes heartbeat { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+        nav ul { display: flex; list-style: none; gap: 15px; }
+        nav ul li a { text-decoration: none; color: #1565c0; font-weight: 600; padding: 10px 22px; border-radius: 12px; background: #ffffff; transition: 0.3s; border: 2px solid #e3f2fd; font-size: 14px; cursor: pointer; display: inline-block; }
+        nav ul li a:hover { background: #2196f3; color: white; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); }
+
+        /* Services Content */
+        .services-header { padding: 60px 10% 20px; text-align: center; }
+        .services-header h1 { color: #0d47a1; font-size: 36px; margin-bottom: 10px; }
+        .services-list { padding: 40px 10%; display: flex; flex-direction: column; gap: 20px; flex: 1; }
+        .service-item { background: #fff; padding: 30px; border-radius: 15px; border-left: 6px solid #2196f3; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .service-item:hover { transform: scale(1.02); }
+        .service-item h3 { color: #1565c0; margin-bottom: 10px; font-size: 22px; }
+
+        .btn-home { margin: 40px auto; background: #2196f3; color: white; padding: 14px 35px; text-decoration: none; border-radius: 8px; font-weight: bold; display: table; transition: 0.3s; border: none; cursor: pointer; }
+        .btn-home:hover { background: #0d47a1; transform: translateY(-3px); }
+
+        /* ASK ME UI */
+        .ask-me-wrapper { position: fixed; bottom: 25px; left: 25px; display: flex; flex-direction: row-reverse; align-items: center; gap: 12px; z-index: 1000; }
+        .ask-btn { 
+            background-color: #2196f3; width: 65px; height: 65px; border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; 
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3); color: white; 
+            font-weight: bold; cursor: pointer; border: none; font-size: 14px; 
+            opacity: 0; animation: boomAppear 0.4s forwards; animation-delay: 1.4s;
         }
-
-        .btn-home { margin-top: 40px; display: inline-block; color: #2196f3; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        .btn-home:hover { color: #0d47a1; transform: scale(1.05); }
-
-        /* Ask Me UI */
-        .ask-wrap { position: fixed; bottom: 25px; left: 25px; display: flex; align-items: center; gap: 12px; z-index: 6000; }
         @keyframes boomAppear { 0% { opacity: 0; transform: scale(0); } 100% { opacity: 1; transform: scale(1); } }
-        .ask-me-btn { 
-            background: #2196f3; color: white; width: 65px; height: 65px; border-radius: 50%; border: none; 
-            font-weight: bold; font-size: 13px; cursor: pointer; opacity: 0;
-            animation: boomAppear 0.5s forwards; animation-delay: 1.2s; 
-        }
-        #searchBar { display: none; background: white; border: 2.5px solid #2196f3; border-radius: 40px; padding: 5px 5px 5px 18px; align-items: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        #searchBar input { border: none; outline: none; width: 150px; padding: 8px; font-size: 14px; }
-        .ask-submit { background: #2196f3; color: white; border: none; border-radius: 30px; padding: 8px 18px; cursor: pointer; font-weight: bold; }
 
-        /* Assistant Modal (Thinking... Style) */
-        #modalOverlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); z-index: 7000; justify-content: center; align-items: center; }
-        .modal-box { background: white; padding: 35px; border-radius: 20px; width: 90%; max-width: 500px; text-align: left; border-top: 8px solid #2196f3; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        #search-box { display: none; background: white; border: 2.5px solid #2196f3; border-radius: 40px; padding: 6px 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); align-items: center; }
+        #search-box input { border: none; outline: none; padding: 8px; width: 160px; font-size: 14px; }
+        #search-box button { background: #2196f3; color: white; border: none; border-radius: 30px; padding: 6px 15px; cursor: pointer; font-weight: bold; }
+
+        /* POPUP WINDOWS */
+        #modalOverlay { display: none; position: fixed; z-index: 7000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); justify-content: center; align-items: center; }
+        .modal-box { 
+            background: white; padding: 30px; border-radius: 20px; width: 90%; max-width: 500px; 
+            text-align: left; border-top: 8px solid #2196f3; position: relative; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
         .modal-box h3 { color: #2196f3; font-size: 22px; margin-bottom: 15px; font-weight: 800; }
+        .modal-box p { font-size: 16px; color: #444; line-height: 1.6; }
         .close-btn { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 24px; color: #bbb; }
 
-        /* Footer */
-        footer { background: #fff; padding: 25px 10%; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; width: 100%; }
+        footer { padding: 25px 10%; display: flex; justify-content: space-between; align-items: center; background: white; border-top: 1px solid #e3f2fd; margin-top: auto; }
         .footer-logo-right { background: #0d47a1; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 20px; border: 2px solid #bbdefb; }
 
-        /* MOBILE VERSION */
-        @media (max-width: 768px) {
-            nav { padding: 15px 5%; flex-direction: row; justify-content: space-between; }
+        /* MOBILE VERSION FIXED */
+        @media only screen and (max-width: 768px) {
+            nav { padding: 10px 5%; flex-direction: row; justify-content: space-between; height: 70px; }
             .logo-text { display: none; }
-            nav ul { gap: 5px; }
-            nav ul li a { padding: 8px 10px; font-size: 11px; }
+            nav ul { gap: 4px; }
+            nav ul li a { padding: 7px 9px; font-size: 10px; white-space: nowrap; }
             footer { flex-direction: column; gap: 20px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <div class="lightning"></div>
+    <div class="lightning-bolt"></div>
 
     <nav>
         <div class="logo-area" onclick="window.location.href='index.html'">
-            <div class="brand-circle heartbeat">SF</div>
+            <div class="brand-circle">SF</div>
             <span class="logo-text">SKILLTECH</span>
         </div>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Me</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <div class="contact-container">
-        <div class="contact-card">
-            <h1>Get In Touch</h1>
-            <p>Ready to start your next digital project? Contact **SKILLTECH** today for expert SEO, Design, and AI solutions.</p>
-            <a href="https://wa.me" class="contact-btn">Message on WhatsApp</a>
-            <p style="margin-top: 25px; color: #777; font-size: 14px;">Email: contact@skilltech.com</p>
-        </div>
-        <a href="index.html" class="btn-home">← Back to Home Page</a>
+    <div class="services-header">
+        <h1>Professional Services</h1>
+        <p>Providing High-Quality Digital Solutions To Grow Your Business.</p>
     </div>
 
+    <div class="services-list">
+        <div class="service-item">
+            <h3>SEO & Digital Marketing</h3>
+            <p>We help your website rank on the first page of Google. Our strategies include advanced keyword research, on-page optimization, and organic traffic growth.</p>
+        </div>
+        <div class="service-item">
+            <h3>Adobe Creative Design</h3>
+            <p>Professional graphic design services using Adobe Photoshop. We create catchy social media banners, advertisements, and brand identity materials.</p>
+        </div>
+        <div class="service-item">
+            <h3>AI Tools & Automation</h3>
+            <p>Harness the power of Artificial Intelligence. We integrate smart AI tools into your workflow to speed up content creation and data analysis.</p>
+        </div>
+        <div class="service-item">
+            <h3>Web & Stock Management</h3>
+            <p>Complete management of inventory and stocks for businesses, combined with building responsive web layouts for efficient data tracking.</p>
+        </div>
+    </div>
+
+    <button class="btn-home" onclick="window.location.href='index.html'">← Back to Home Page</button>
+
     <footer>
-        <div class="ask-wrap">
-            <button class="ask-me-btn" onclick="toggleSearch()">Ask Me</button>
-            <div id="searchBar">
-                <input type="text" id="userInput" placeholder="Ask me...">
-                <button class="ask-submit" onclick="askAI()">Ask</button>
+        <div class="ask-me-wrapper">
+            <button class="ask-btn" onclick="toggleSearch()">Ask Me</button>
+            <div id="search-box">
+                <input type="text" id="userInput" placeholder="Ask me anything...">
+                <button onclick="askAI()">Ask</button>
             </div>
         </div>
-        <div>© 2026 SKILLTECH - All Rights Reserved</div>
+        <div style="color: #999;">© 2026 SKILLTECH - All Rights Reserved</div>
         <div class="footer-logo-right heartbeat">SF</div>
     </footer>
 
@@ -163,15 +151,15 @@
     <div id="modalOverlay">
         <div class="modal-box">
             <span class="close-btn" onclick="closeAI()">&times;</span>
-            <h3>Shakeel's AI Assistant</h3>
+            <h3 id="modalTitle">Shakeel's AI Assistant</h3>
             <p id="modalText">Thinking...</p>
         </div>
     </div>
 
     <script>
         function toggleSearch() {
-            var bar = document.getElementById('searchBar');
-            bar.style.display = (bar.style.display === 'flex') ? 'none' : 'flex';
+            var box = document.getElementById('search-box');
+            box.style.display = (box.style.display === 'flex') ? 'none' : 'flex';
         }
         
         function askAI() { 
