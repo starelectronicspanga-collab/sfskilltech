@@ -24,6 +24,31 @@
             left: 11%; z-index: 9999; border-radius: 10px; opacity: 0;
             animation: strikeDown 0.75s ease-in forwards; animation-delay: 0.5s;
         }
+         /* AI Button Design */
+    .ai-wrapper {
+        position: fixed; bottom: 25px; right: 25px;
+        display: flex; align-items: center; gap: 10px;
+        z-index: 7000; cursor: pointer;
+    }
+    .ai-circle {
+        width: 60px; height: 60px; background: #0d47a1; color: white;
+        border-radius: 50%; display: flex; justify-content: center;
+        align-items: center; font-family: 'Orbitron', sans-serif;
+        font-weight: bold; font-size: 16px; border: 3px solid #2196f3;
+        box-shadow: 0 0 15px rgba(33, 150, 243, 0.5);
+        animation: superSpin 1.5s ease-in-out forwards, theFlash 0.5s ease-in-out 1.5s forwards, settleGlow 2s infinite ease-in-out 2s;
+    }
+    .click-me-line {
+        background: white; color: #0d47a1; padding: 6px 12px;
+        border-radius: 20px; font-size: 12px; font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 1px solid #2196f3;
+        opacity: 0; transform: translateX(10px); white-space: nowrap;
+        animation: slideLabel 0.5s ease-out 2.2s forwards;
+    }
+    @keyframes superSpin { 0% { transform: rotate(0deg) scale(0.5); opacity: 0; } 100% { transform: rotate(1080deg) scale(1); opacity: 1; } }
+    @keyframes theFlash { 0% { filter: brightness(1); } 50% { filter: brightness(5); box-shadow: 0 0 50px 20px #fff; } 100% { filter: brightness(1); } }
+    @keyframes settleGlow { 0%, 100% { box-shadow: 0 0 15px #2196f3; transform: scale(1); } 50% { box-shadow: 0 0 25px #2196f3; transform: scale(1.05); } }
+    @keyframes slideLabel { to { opacity: 1; transform: translateX(0); } }
 
         /* Navbar */
         nav { 
@@ -119,7 +144,11 @@
             </div>
         </div>
         <div class="copyright-center">© 2026 SKILLTECH - All Rights Reserved | Developed by Shakeel Ahmed Khan</div>
-        <div class="footer-logo-right heartbeat">SF</div>
+          <!-- Naya Animated AI Button -->
+    <div class="ai-wrapper" onclick="window.location.href='ai-center.html'">
+        <div class="click-me-line">Click Me 🚀</div>
+        <div class="ai-circle">AI</div>
+    </div>
     </footer>
 
     <!-- Assistant Modal -->
