@@ -24,7 +24,7 @@
             position: sticky; top: 0; z-index: 1000;
             width: 100%;
         }
-        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; cursor: pointer; }
 
         /* SF LOGO - HEARTBEAT */
         .brand-circle {
@@ -65,22 +65,6 @@
 
         @keyframes heartbeat { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-        /* ASK ME BUTTON */
-        .ask-btn { 
-            background-color: #2196f3; width: 60px; height: 60px; border-radius: 50%; 
-            display: flex; justify-content: center; align-items: center; 
-            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3); color: white; 
-            font-weight: bold; cursor: pointer; border: none; font-size: 14px; 
-            opacity: 0;
-            animation: boomAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-            animation-delay: 1.4s;
-        }
-
-        @keyframes boomAppear {
-            0% { opacity: 0; transform: scale(0); filter: brightness(10); }
-            100% { opacity: 1; transform: scale(1); filter: brightness(1); }
-        }
-
         /* Work Section Design */
         .work-container { padding: 60px 10%; text-align: center; width: 100%; }
         .work-container h1 { color: #0d47a1; margin-bottom: 10px; font-size: 36px; }
@@ -105,19 +89,44 @@
         .blue-2 { background: linear-gradient(45deg, #1976d2, #42a5f5); }
         .blue-3 { background: linear-gradient(45deg, #0d47a1, #1e88e5); }
 
-        .btn-home { margin-top: 50px; background: #2196f3; color: white; padding: 14px 35px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3); }
+        /* Footer and Buttons */
+        .btn-home { margin-top: 50px; background: #2196f3; color: white; padding: 14px 35px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3); border: none; cursor: pointer; }
+        .btn-home:hover { background: #0d47a1; transform: translateY(-5px); }
 
+        /* ASK ME UI */
         .ask-me-wrapper { position: fixed; bottom: 25px; left: 25px; display: flex; flex-direction: row-reverse; align-items: center; gap: 12px; z-index: 1000; }
+        .ask-btn { 
+            background-color: #2196f3; width: 60px; height: 60px; border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; 
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3); color: white; 
+            font-weight: bold; cursor: pointer; border: none; font-size: 14px; 
+            opacity: 0; animation: boomAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; animation-delay: 1.4s;
+        }
+        @keyframes boomAppear { 0% { opacity: 0; transform: scale(0); } 100% { opacity: 1; transform: scale(1); } }
+
         #search-box { display: none; background: white; border: 2.5px solid #2196f3; border-radius: 40px; padding: 6px 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); align-items: center; }
         #search-box input { border: none; outline: none; padding: 8px; width: 160px; font-size: 14px; }
         #search-box button { background: #2196f3; color: white; border: none; border-radius: 30px; padding: 6px 15px; cursor: pointer; font-weight: bold; }
 
+        /* Assistant Modal (Aap ki Image jaisa style) */
+        #modalOverlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); z-index: 7000; justify-content: center; align-items: center; }
+        .modal-box { 
+            background: white; padding: 30px; border-radius: 20px; width: 90%; max-width: 500px; 
+            text-align: left; border-top: 8px solid #2196f3; position: relative; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .modal-box h3 { color: #2196f3; font-size: 22px; margin-bottom: 15px; font-weight: 800; }
+        .modal-box p { font-size: 16px; color: #444; line-height: 1.6; }
+        .close-btn { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 24px; color: #bbb; }
+
         footer { background: #fff; padding: 25px; text-align: center; border-top: 1px solid #e3f2fd; font-size: 14px; color: #999; margin-top: 50px; width: 100%; }
 
         @media (max-width: 768px) {
-            nav { padding: 15px 5%; flex-direction: column; gap: 15px; }
-            nav ul { gap: 5px; flex-wrap: wrap; justify-content: center; }
+            nav { padding: 15px 5%; flex-direction: row; justify-content: space-between; }
+            .logo-text { display: none; }
+            nav ul { gap: 5px; }
             nav ul li a { padding: 8px 10px; font-size: 11px; }
+            .work-container { padding: 40px 5%; }
         }
     </style>
 </head>
@@ -126,7 +135,7 @@
     <div class="lightning-bolt"></div>
 
     <nav>
-        <div class="logo-area">
+        <div class="logo-area" onclick="window.location.href='index.html'">
             <div class="brand-circle">SF</div>
             <span class="logo-text">SKILLTECH</span>
         </div>
@@ -176,23 +185,55 @@
                 </ul>
             </div>
         </div>
-        <a href="index.html" class="btn-home">← Back to Home Page</a>
+
+        <button class="btn-home" onclick="window.location.href='index.html'">← Back to Home Page</button>
     </div>
 
     <div class="ask-me-wrapper">
+        <button class="ask-btn" onclick="toggleSearch()">Ask Me</button>
         <div id="search-box">
             <input type="text" id="userInput" placeholder="Ask me anything...">
-            <button>Ask</button>
+            <button onclick="askAI()">Ask</button>
         </div>
-        <button class="ask-btn" onclick="toggleSearchBox()">Ask Me</button>
     </div>
 
-    <footer><p>© 2026 SKILLTECH - All Rights Reserved</p></footer>
+    <footer>
+        © 2026 SKILLTECH - All Rights Reserved
+    </footer>
+
+    <!-- Assistant Modal -->
+    <div id="modalOverlay">
+        <div class="modal-box">
+            <span class="close-btn" onclick="closeAI()">&times;</span>
+            <h3 id="modalTitle">Shakeel's AI Assistant</h3>
+            <p id="modalText">Thinking...</p>
+        </div>
+    </div>
 
     <script>
-        function toggleSearchBox() {
-            var box = document.getElementById("search-box");
-            box.style.display = (box.style.display === "flex") ? "none" : "flex";
+        function toggleSearch() {
+            var box = document.getElementById('search-box');
+            if(box.style.display === 'flex') {
+                box.style.display = 'none';
+            } else {
+                box.style.display = 'flex';
+            }
+        }
+        
+        function askAI() { 
+            let input = document.getElementById('userInput').value;
+            if(input.trim() !== "") { 
+                document.getElementById('modalOverlay').style.display = 'flex';
+                document.getElementById('modalText').innerText = "Thinking...";
+                setTimeout(function() {
+                    document.getElementById('modalText').innerText = "Hi, I am Shakeel Ahmed Khan's assistant. I have received your message and you will be answered shortly. Thank you!";
+                }, 1500);
+            } 
+        }
+
+        function closeAI() { 
+            document.getElementById('modalOverlay').style.display = 'none'; 
+            document.getElementById('userInput').value = ""; 
         }
     </script>
 </body>
