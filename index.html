@@ -25,7 +25,7 @@
             animation: strikeDown 0.75s ease-in forwards; animation-delay: 0.5s;
         }
 
-        /* Navbar - Optimized for Mobile */
+        /* Navbar */
         nav { 
             background: white; padding: 10px 5%; display: flex; justify-content: space-between; 
             align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
@@ -43,34 +43,26 @@
             white-space: nowrap; display: inline-block;
         }
 
-        /* Hover Effect: Blue + Ubharna */
         nav ul li a:hover, .btn-blue:hover, .ask-submit:hover { 
             background: #2196f3 !important; color: white !important;
             transform: translateY(-5px) scale(1.05) !important;
             box-shadow: 0 10px 20px rgba(33, 150, 243, 0.4); border-color: #0d47a1;
         }
 
-        /* Hero */
         .main-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 80px; }
         .hero h1 { font-size: clamp(28px, 8vw, 60px); color: #1565c0; text-transform: uppercase; }
-        .hero h2 { font-size: clamp(18px, 5vw, 32px); color: #1565c0; font-weight: 600; margin-top: 5px; }
-        .founder-text { font-size: 13px; color: #666; font-weight: bold; text-transform: uppercase; margin-top: 10px; }
+        .hero h2 { font-size: clamp(18px, 5vw, 32px); color: #1565c0; font-weight: 600; margin-top: 10px; }
+        .founder-text { font-size: 13px; color: #666; font-weight: bold; text-transform: uppercase; margin-top: 15px; }
         .hero p { font-size: 14px; color: #777; max-width: 700px; margin: 15px auto; padding: 0 5%; }
         .btn-blue { background: #2196f3; color: white; padding: 12px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; cursor: pointer; border: none; font-size: 15px; transition: 0.3s; margin-top: 10px; display: inline-block; }
 
-        /* Footer */
-        footer { padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; background: white; border-top: 1px solid #eee; }
+        footer { padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; background: white; border-top: 1px solid #eee; margin-top: auto; }
         .copyright-center { flex: 1; text-align: center; color: #999; font-size: 11px; }
         .footer-logo-right { background: #0d47a1; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 16px; border: 2px solid #bbdefb; }
 
-        /* Ask Me UI */
         .ask-wrap { position: fixed; bottom: 15px; left: 15px; display: flex; align-items: center; gap: 8px; z-index: 6000; }
         @keyframes boomAppear { 0% { opacity: 0; transform: scale(0); } 100% { opacity: 1; transform: scale(1); } }
-        .ask-me-btn { 
-            background: #2196f3; color: white; width: 55px; height: 55px; border-radius: 50%; border: none; 
-            font-weight: bold; font-size: 11px; cursor: pointer; opacity: 0;
-            animation: boomAppear 0.5s forwards; animation-delay: 1.2s; 
-        }
+        .ask-me-btn { background: #2196f3; color: white; width: 55px; height: 55px; border-radius: 50%; border: none; font-weight: bold; font-size: 11px; cursor: pointer; opacity: 0; animation: boomAppear 0.5s forwards; animation-delay: 1.2s; }
         #searchBar { display: none; background: white; border: 2.5px solid #2196f3; border-radius: 40px; padding: 3px 3px 3px 12px; align-items: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
         #searchBar input { border: none; outline: none; width: 120px; padding: 6px; font-size: 12px; }
         .ask-submit { background: #2196f3; color: white; border: none; border-radius: 30px; padding: 6px 12px; cursor: pointer; font-weight: bold; font-size: 12px; }
@@ -87,7 +79,6 @@
             .logo-text { font-size: 20px; }
             nav ul { gap: 10px; }
             nav ul li a { padding: 8px 15px; font-size: 14px; }
-            .copyright-center { font-size: 13px; }
         }
     </style>
 </head>
@@ -104,7 +95,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="javascript:void(0)" onclick="openAbout()">About</a></li>
+            <li><a href="#" onclick="openAbout(event)">About Me</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
@@ -127,34 +118,53 @@
                 <button class="ask-submit" onclick="askAI()">Ask</button>
             </div>
         </div>
-        <div class="copyright-center">
-            © 2026 SKILLTECH - All Rights Reserved | Developed by Shakeel Ahmed Khan
-        </div>
+        <div class="copyright-center">© 2026 SKILLTECH - All Rights Reserved | Developed by Shakeel Ahmed Khan</div>
         <div class="footer-logo-right heartbeat">SF</div>
     </footer>
 
     <!-- Assistant Modal -->
     <div id="aiModal" class="modal-overlay"><div class="modal-box"><span class="close-btn" onclick="closeAI()">&times;</span><h3>Shakeel's AI Assistant</h3><p id="aiText">Thinking...</p></div></div>
+    
     <!-- About Modal -->
-    <div id="aboutModal" class="modal-overlay"><div class="modal-box"><span class="close-btn" onclick="closeAbout()">&times;</span><h3 style="color: #0d47a1;">About Shakeel Ahmed Khan</h3><p>I am the founder of <b>SF SKILLTECH</b>, providing top-tier SEO, Design, and AI solutions with 2 years of experience at Star International.</p></div></div>
+    <div id="aboutModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="close-btn" onclick="closeAbout()">&times;</span>
+            <h3 style="color: #0d47a1;">About Shakeel Ahmed Khan</h3>
+            <p>I am the founder of <b>SF SKILLTECH</b>, providing top-tier SEO, Design, and AI solutions with 2 years of experience at Star International. My mission is to empower businesses through innovation.</p>
+        </div>
+    </div>
 
     <script>
-        function openAbout() { document.getElementById('aboutModal').style.display = 'flex'; }
+        function openAbout(e) { 
+            if(e) e.preventDefault();
+            document.getElementById('aboutModal').style.display = 'flex'; 
+        }
         function closeAbout() { document.getElementById('aboutModal').style.display = 'none'; }
+        
         function toggleSearch() { 
             var bar = document.getElementById('searchBar');
             bar.style.display = (bar.style.display === 'flex') ? 'none' : 'flex';
         }
+        
         function askAI() { 
             let input = document.getElementById('userInput').value;
             if(input.trim() !== "") { 
                 document.getElementById('aiModal').style.display = 'flex';
                 document.getElementById('aiText').innerText = "Thinking...";
-                setTimeout(function() { document.getElementById('aiText').innerText = "Hi, I am Shakeel Ahmed Khan's assistant. I have received your message and you will be answered shortly. Thank you!"; }, 1500);
+                setTimeout(function() { 
+                    document.getElementById('aiText').innerText = "Hi, I am Shakeel Ahmed Khan's assistant. I have received your message and you will be answered shortly. Thank you!"; 
+                }, 1500);
             } 
         }
+        
         function closeAI() { document.getElementById('aiModal').style.display = 'none'; document.getElementById('userInput').value = ""; }
-        window.onclick = function(event) { if (event.target.className == 'modal-overlay') { closeAI(); closeAbout(); } }
+        
+        window.onclick = function(event) { 
+            if (event.target.className === 'modal-overlay') { 
+                closeAI(); 
+                closeAbout(); 
+            } 
+        }
     </script>
 </body>
 </html>
